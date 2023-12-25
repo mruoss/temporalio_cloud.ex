@@ -1,0 +1,64 @@
+name: Update Sources
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          submodules: true
+
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup elixir
+        id: beam
+        uses: erlef/setup-beam@v1
+        with:
+          version-file: .tool-versions
+          version-type: strict
+          install-rebar: true
+          install-hex: true
+
+      - name: Setup protoc-gen-elixir
+        id: protobuf
+        run: |
+          mix escript.install hex protobuf --force
+
+      - name: Init repository
+        id: init-repo
+        run: make init
+
+      - name: Get latest versions and update protocol buffers
+        id: get-and-update
+        run: make
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: upgrade-on-upstream
+          base: main
+          delete-branch: true
+          title: "Updates in Upstream Repository"
+          assignees: mruoss
+          body: |
+            There were update in the [upstream repository][1].
+
+            [1]: https://github.com/temporalio/api-cloud
+          draft: false
+          labels: |
+            release

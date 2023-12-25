@@ -1,0 +1,6 @@
+[submodule "src/temporalio_cloud_api"]
+	path = src/temporalio_cloud_api
+	url = https://github.com/temporalio/api-cloud.git
+[submodule "src/googleapis"]
+	path = src/googleapis
+	url = https://github.com/googleapis/googleapis
