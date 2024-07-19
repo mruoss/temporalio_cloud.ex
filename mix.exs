@@ -28,7 +28,7 @@ defmodule TemporalioCloud.MixProject do
   defp deps do
     [
       {:protobuf, "~> 0.12.0"},
-      {:grpc, "~> 0.8.0"}
+      {:grpc, "~> 0.9.0"}
     ]
   end
 
