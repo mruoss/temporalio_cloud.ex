@@ -2,6 +2,7 @@
 
 Elixir files generated from [Temporal.io's Cloud-API protobuf files](https://github.com/temporalio/api-cloud) using [protobuf-elixir](https://github.com/elixir-protobuf/protobuf).
 
+[![Module Version](https://img.shields.io/hexpm/v/temporalio_cloud.svg)](https://hex.pm/packages/temporalio_cloud)
 [![Last Updated](https://img.shields.io/github/last-commit/mruoss/temporalio_cloud.ex.svg)](https://github.com/mruoss/temporalio_cloud.ex/commits/main)
 
 [![Upstream Version Check](https://github.com/mruoss/temporalio_cloud.ex/actions/workflows/update.yaml/badge.svg)](https://github.com/mruoss/temporalio_cloud.ex/actions/workflows/update.yaml)
