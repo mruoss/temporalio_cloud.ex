@@ -1,4 +1,4 @@
-# Temporalio Cloud API
+# Temporal Cloud API
 
 Elixir files generated from [Temporal.io's Cloud-API protobuf files](https://github.com/temporalio/api-cloud) using [protobuf-elixir](https://github.com/elixir-protobuf/protobuf).
 
