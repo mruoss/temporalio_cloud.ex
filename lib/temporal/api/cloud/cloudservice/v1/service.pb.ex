@@ -3,7 +3,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
 
   use GRPC.Service,
     name: "temporal.api.cloud.cloudservice.v1.CloudService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetUsers,
       Temporal.Api.Cloud.Cloudservice.V1.GetUsersRequest,

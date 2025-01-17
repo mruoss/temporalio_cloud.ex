@@ -1,7 +1,7 @@
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.SearchAttributeType do
   @moduledoc false
 
-  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SEARCH_ATTRIBUTE_TYPE_UNSPECIFIED, 0
   field :SEARCH_ATTRIBUTE_TYPE_TEXT, 1
@@ -16,7 +16,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_ADDING, 1
@@ -29,7 +29,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.CertificateFilterSpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :common_name, 1, type: :string, json_name: "commonName"
   field :organization, 2, type: :string
@@ -40,7 +40,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.MtlsAuthSpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :accepted_client_ca_deprecated, 1, type: :string, json_name: "acceptedClientCaDeprecated"
   field :accepted_client_ca, 4, type: :bytes, json_name: "acceptedClientCa"
@@ -56,7 +56,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.ApiKeyAuthSpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
@@ -64,7 +64,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string
   field :pass_access_token, 2, type: :bool, json_name: "passAccessToken"
@@ -77,7 +77,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.CustomSearchAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -86,7 +86,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.SearchAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -98,7 +98,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :regions, 2, repeated: true, type: :string
@@ -130,7 +130,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.Endpoints do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :web_address, 1, type: :string, json_name: "webAddress"
   field :mtls_grpc_address, 2, type: :string, json_name: "mtlsGrpcAddress"
@@ -140,7 +140,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.Limits do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :actions_per_second_limit, 1, type: :int32, json_name: "actionsPerSecondLimit"
 end
@@ -148,7 +148,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.AWSPrivateLinkInfo do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :allowed_principal_arns, 1,
     repeated: true,
@@ -164,7 +164,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.PrivateConnectivity do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :region, 1, type: :string
 
@@ -176,7 +176,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.Namespace.RegionStatusEntry do
   @moduledoc false
 
-  use Protobuf, map: true, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus
@@ -185,7 +185,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -215,7 +215,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :state_deprecated, 1, type: :string, json_name: "stateDeprecated", deprecated: true
   field :state, 3, type: Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus.State, enum: true
