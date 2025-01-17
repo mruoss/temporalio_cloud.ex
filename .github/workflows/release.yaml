@@ -1,0 +1,58 @@
+name: Create Release
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  release:
+    if: (github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release')) || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          submodules: true
+
+      - name: get latest tags
+        id: tags
+        run: |
+          echo "new_tag=$(cd src/temporalio_cloud_api && git describe --abbrev=0 --tags)" >> "$GITHUB_OUTPUT"
+
+      - name: Setup elixir
+        id: beam
+        uses: erlef/setup-beam@v1
+        with:
+          version-file: .tool-versions
+          version-type: strict
+          install-rebar: true
+          install-hex: true
+
+      - name: Publish to Hex.pm
+        env:
+          HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
+        run: |
+          mix deps.get
+          mix hex.publish --yes
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.tags.outputs.new_tag }}
+          release_name: Release ${{ steps.tags.outputs.new_tag }}
+          body: |
+            See [upstream release notes][1]
+
+            [1]: https://github.com/temporalio/api-cloud/api/releases/tag/${{steps.tags.outputs.new_tag}}
+          draft: false
+          prerelease: false
