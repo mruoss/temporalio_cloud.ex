@@ -1,7 +1,7 @@
 defmodule Temporal.Api.Cloud.Identity.V1.OwnerType do
   @moduledoc false
 
-  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :OWNER_TYPE_UNSPECIFIED, 0
   field :OWNER_TYPE_USER, 1
@@ -11,7 +11,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.AccountAccess.Role do
   @moduledoc false
 
-  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :ROLE_OWNER, 1
@@ -24,7 +24,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.NamespaceAccess.Permission do
   @moduledoc false
 
-  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PERMISSION_UNSPECIFIED, 0
   field :PERMISSION_ADMIN, 1
@@ -35,7 +35,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.AccountAccess do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :role_deprecated, 1, type: :string, json_name: "roleDeprecated", deprecated: true
   field :role, 2, type: Temporal.Api.Cloud.Identity.V1.AccountAccess.Role, enum: true
@@ -44,7 +44,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.NamespaceAccess do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :permission_deprecated, 1,
     type: :string,
@@ -59,7 +59,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.Access.NamespaceAccessesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess
@@ -68,7 +68,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.Access do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :account_access, 1,
     type: Temporal.Api.Cloud.Identity.V1.AccountAccess,
@@ -84,7 +84,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.UserSpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :email, 1, type: :string
   field :access, 2, type: Temporal.Api.Cloud.Identity.V1.Access
@@ -93,7 +93,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.Invitation do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :created_time, 1, type: Google.Protobuf.Timestamp, json_name: "createdTime"
   field :expired_time, 2, type: Google.Protobuf.Timestamp, json_name: "expiredTime"
@@ -102,7 +102,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.User do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -118,7 +118,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.GoogleGroupSpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :email_address, 1, type: :string, json_name: "emailAddress"
 end
@@ -126,7 +126,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.UserGroupSpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :access, 2, type: Temporal.Api.Cloud.Identity.V1.Access
@@ -139,7 +139,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.UserGroup do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -154,7 +154,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccount do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -169,7 +169,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccountSpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :access, 2, type: Temporal.Api.Cloud.Identity.V1.Access
@@ -179,7 +179,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.ApiKey do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -194,7 +194,7 @@ end
 defmodule Temporal.Api.Cloud.Identity.V1.ApiKeySpec do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :owner_id, 1, type: :string, json_name: "ownerId"
 

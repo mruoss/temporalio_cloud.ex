@@ -1,7 +1,7 @@
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUsersRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -12,7 +12,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUsersResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :users, 1, repeated: true, type: Temporal.Api.Cloud.Identity.V1.User
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -21,7 +21,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :user_id, 1, type: :string, json_name: "userId"
 end
@@ -29,7 +29,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :user, 1, type: Temporal.Api.Cloud.Identity.V1.User
 end
@@ -37,7 +37,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateUserRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :spec, 1, type: Temporal.Api.Cloud.Identity.V1.UserSpec
   field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
@@ -46,7 +46,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateUserResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :user_id, 1, type: :string, json_name: "userId"
 
@@ -58,7 +58,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateUserRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :user_id, 1, type: :string, json_name: "userId"
   field :spec, 2, type: Temporal.Api.Cloud.Identity.V1.UserSpec
@@ -69,7 +69,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateUserResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -79,7 +79,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteUserRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :user_id, 1, type: :string, json_name: "userId"
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -89,7 +89,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteUserResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -99,7 +99,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserNamespaceAccessRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :user_id, 2, type: :string, json_name: "userId"
@@ -111,7 +111,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserNamespaceAccessResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -121,7 +121,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetAsyncOperationRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation_id, 1, type: :string, json_name: "asyncOperationId"
 end
@@ -129,7 +129,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetAsyncOperationResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -139,7 +139,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :spec, 2, type: Temporal.Api.Cloud.Namespace.V1.NamespaceSpec
   field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
@@ -148,7 +148,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
 
@@ -160,7 +160,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNamespacesRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -170,7 +170,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNamespacesResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespaces, 1, repeated: true, type: Temporal.Api.Cloud.Namespace.V1.Namespace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -179,7 +179,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
 end
@@ -187,7 +187,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: Temporal.Api.Cloud.Namespace.V1.Namespace
 end
@@ -195,7 +195,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :spec, 2, type: Temporal.Api.Cloud.Namespace.V1.NamespaceSpec
@@ -206,7 +206,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -216,7 +216,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.RenameCustomSearchAttributeRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
 
@@ -235,7 +235,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.RenameCustomSearchAttributeResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -245,7 +245,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -255,7 +255,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -265,7 +265,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.FailoverNamespaceRegionRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :region, 2, type: :string
@@ -275,7 +275,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.FailoverNamespaceRegionResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -285,7 +285,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.AddNamespaceRegionRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :region, 2, type: :string
@@ -296,7 +296,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.AddNamespaceRegionResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -306,13 +306,13 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetRegionsRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetRegionsResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :regions, 1, repeated: true, type: Temporal.Api.Cloud.Region.V1.Region
 end
@@ -320,7 +320,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetRegionRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :region, 1, type: :string
 end
@@ -328,7 +328,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetRegionResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :region, 1, type: Temporal.Api.Cloud.Region.V1.Region
 end
@@ -336,7 +336,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetApiKeysRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -356,7 +356,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetApiKeysResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api_keys, 1,
     repeated: true,
@@ -369,7 +369,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetApiKeyRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId"
 end
@@ -377,7 +377,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetApiKeyResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api_key, 1, type: Temporal.Api.Cloud.Identity.V1.ApiKey, json_name: "apiKey"
 end
@@ -385,7 +385,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateApiKeyRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :spec, 1, type: Temporal.Api.Cloud.Identity.V1.ApiKeySpec
   field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
@@ -394,7 +394,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateApiKeyResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId"
   field :token, 2, type: :string
@@ -407,7 +407,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateApiKeyRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId"
   field :spec, 2, type: Temporal.Api.Cloud.Identity.V1.ApiKeySpec
@@ -418,7 +418,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateApiKeyResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -428,7 +428,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteApiKeyRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId"
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -438,7 +438,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteApiKeyResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -448,7 +448,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -460,7 +460,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointsResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoints, 1, repeated: true, type: Temporal.Api.Cloud.Nexus.V1.Endpoint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -469,7 +469,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint_id, 1, type: :string, json_name: "endpointId"
 end
@@ -477,7 +477,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: Temporal.Api.Cloud.Nexus.V1.Endpoint
 end
@@ -485,7 +485,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNexusEndpointRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :spec, 1, type: Temporal.Api.Cloud.Nexus.V1.EndpointSpec
   field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
@@ -494,7 +494,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNexusEndpointResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint_id, 1, type: :string, json_name: "endpointId"
 
@@ -506,7 +506,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateNexusEndpointRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint_id, 1, type: :string, json_name: "endpointId"
   field :spec, 2, type: Temporal.Api.Cloud.Nexus.V1.EndpointSpec
@@ -517,7 +517,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateNexusEndpointResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -527,7 +527,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteNexusEndpointRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint_id, 1, type: :string, json_name: "endpointId"
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -537,7 +537,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteNexusEndpointResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -547,7 +547,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest.GoogleGroupFilter do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :email_address, 1, type: :string, json_name: "emailAddress"
 end
@@ -555,7 +555,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -570,7 +570,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :groups, 1, repeated: true, type: Temporal.Api.Cloud.Identity.V1.UserGroup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -579,7 +579,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :group_id, 1, type: :string, json_name: "groupId"
 end
@@ -587,7 +587,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :group, 1, type: Temporal.Api.Cloud.Identity.V1.UserGroup
 end
@@ -595,7 +595,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateUserGroupRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :spec, 1, type: Temporal.Api.Cloud.Identity.V1.UserGroupSpec
   field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
@@ -604,7 +604,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateUserGroupResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :group_id, 1, type: :string, json_name: "groupId"
 
@@ -616,7 +616,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateUserGroupRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :group_id, 1, type: :string, json_name: "groupId"
   field :spec, 2, type: Temporal.Api.Cloud.Identity.V1.UserGroupSpec
@@ -627,7 +627,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateUserGroupResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -637,7 +637,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteUserGroupRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :group_id, 1, type: :string, json_name: "groupId"
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -647,7 +647,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteUserGroupResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -657,7 +657,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :group_id, 2, type: :string, json_name: "groupId"
@@ -669,7 +669,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -679,7 +679,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :spec, 1, type: Temporal.Api.Cloud.Identity.V1.ServiceAccountSpec
   field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
@@ -688,7 +688,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account_id, 1, type: :string, json_name: "serviceAccountId"
 
@@ -700,7 +700,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account_id, 1, type: :string, json_name: "serviceAccountId"
 end
@@ -708,7 +708,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account, 1,
     type: Temporal.Api.Cloud.Identity.V1.ServiceAccount,
@@ -718,7 +718,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountsRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -727,7 +727,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountsResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account, 1,
     repeated: true,
@@ -740,7 +740,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account_id, 1, type: :string, json_name: "serviceAccountId"
   field :spec, 2, type: Temporal.Api.Cloud.Identity.V1.ServiceAccountSpec
@@ -751,7 +751,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -761,7 +761,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteServiceAccountRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account_id, 1, type: :string, json_name: "serviceAccountId"
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -771,7 +771,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteServiceAccountResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
@@ -781,7 +781,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUsageRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_time_inclusive, 1, type: Google.Protobuf.Timestamp, json_name: "startTimeInclusive"
   field :end_time_exclusive, 2, type: Google.Protobuf.Timestamp, json_name: "endTimeExclusive"
@@ -792,7 +792,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUsageResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :summaries, 1, repeated: true, type: Temporal.Api.Cloud.Usage.V1.Summary
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -801,13 +801,13 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetAccountRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetAccountResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :account, 1, type: Temporal.Api.Cloud.Account.V1.Account
 end
@@ -815,7 +815,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :spec, 1, type: Temporal.Api.Cloud.Account.V1.AccountSpec
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -825,7 +825,7 @@ end
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.13.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
