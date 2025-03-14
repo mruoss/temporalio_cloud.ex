@@ -4,3 +4,6 @@
 [submodule "src/googleapis"]
 	path = src/googleapis
 	url = https://github.com/googleapis/googleapis
+[submodule "src/temporalio_api"]
+	path = src/temporalio_api
+	url = https://github.com/temporalio/api.git
