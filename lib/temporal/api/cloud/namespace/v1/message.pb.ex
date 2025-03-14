@@ -1,7 +1,7 @@
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.SearchAttributeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SEARCH_ATTRIBUTE_TYPE_UNSPECIFIED, 0
   field :SEARCH_ATTRIBUTE_TYPE_TEXT, 1
@@ -16,7 +16,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_ADDING, 1
@@ -26,10 +26,21 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus.State do
   field :STATE_FAILED, 5
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.ExportSink.Health do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :HEALTH_UNSPECIFIED, 0
+  field :HEALTH_OK, 1
+  field :HEALTH_ERROR_INTERNAL, 2
+  field :HEALTH_ERROR_USER_CONFIGURATION, 3
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.CertificateFilterSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :common_name, 1, type: :string, json_name: "commonName"
   field :organization, 2, type: :string
@@ -40,7 +51,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.MtlsAuthSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :accepted_client_ca_deprecated, 1, type: :string, json_name: "acceptedClientCaDeprecated"
   field :accepted_client_ca, 4, type: :bytes, json_name: "acceptedClientCa"
@@ -56,7 +67,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.ApiKeyAuthSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
@@ -64,7 +75,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :endpoint, 1, type: :string
   field :pass_access_token, 2, type: :bool, json_name: "passAccessToken"
@@ -74,10 +85,26 @@ defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec do
     json_name: "includeCrossOriginCredentials"
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.LifecycleSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :enable_delete_protection, 1, type: :bool, json_name: "enableDeleteProtection"
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.HighAvailabilitySpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :disable_managed_failover, 1, type: :bool, json_name: "disableManagedFailover"
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.CustomSearchAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -86,7 +113,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.SearchAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -98,7 +125,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :regions, 2, repeated: true, type: :string
@@ -125,12 +152,18 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
   field :codec_server, 6,
     type: Temporal.Api.Cloud.Namespace.V1.CodecServerSpec,
     json_name: "codecServer"
+
+  field :lifecycle, 9, type: Temporal.Api.Cloud.Namespace.V1.LifecycleSpec
+
+  field :high_availability, 10,
+    type: Temporal.Api.Cloud.Namespace.V1.HighAvailabilitySpec,
+    json_name: "highAvailability"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.Endpoints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :web_address, 1, type: :string, json_name: "webAddress"
   field :mtls_grpc_address, 2, type: :string, json_name: "mtlsGrpcAddress"
@@ -140,7 +173,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.Limits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :actions_per_second_limit, 1, type: :int32, json_name: "actionsPerSecondLimit"
 end
@@ -148,7 +181,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.AWSPrivateLinkInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :allowed_principal_arns, 1,
     repeated: true,
@@ -164,7 +197,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.PrivateConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :region, 1, type: :string
 
@@ -176,7 +209,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.Namespace.RegionStatusEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus
@@ -185,7 +218,7 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :resource_version, 2, type: :string, json_name: "resourceVersion"
@@ -215,9 +248,41 @@ end
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state_deprecated, 1, type: :string, json_name: "stateDeprecated", deprecated: true
   field :state, 3, type: Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus.State, enum: true
   field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.ExportSinkSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :enabled, 2, type: :bool
+  field :s3, 3, type: Temporal.Api.Cloud.Sink.V1.S3Spec
+  field :gcs, 4, type: Temporal.Api.Cloud.Sink.V1.GCSSpec
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.ExportSink do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :state, 3, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
+  field :spec, 4, type: Temporal.Api.Cloud.Namespace.V1.ExportSinkSpec
+  field :health, 5, type: Temporal.Api.Cloud.Namespace.V1.ExportSink.Health, enum: true
+  field :error_message, 6, type: :string, json_name: "errorMessage"
+
+  field :latest_data_export_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "latestDataExportTime"
+
+  field :last_health_check_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastHealthCheckTime"
 end
