@@ -3,7 +3,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
 
   use GRPC.Service,
     name: "temporal.api.cloud.cloudservice.v1.CloudService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetUsers,
       Temporal.Api.Cloud.Cloudservice.V1.GetUsersRequest,
@@ -64,6 +64,10 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :AddNamespaceRegion,
       Temporal.Api.Cloud.Cloudservice.V1.AddNamespaceRegionRequest,
       Temporal.Api.Cloud.Cloudservice.V1.AddNamespaceRegionResponse
+
+  rpc :DeleteNamespaceRegion,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceRegionRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceRegionResponse
 
   rpc :GetRegions,
       Temporal.Api.Cloud.Cloudservice.V1.GetRegionsRequest,
@@ -168,6 +172,30 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :UpdateAccount,
       Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountRequest,
       Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountResponse
+
+  rpc :CreateNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceExportSinkResponse
+
+  rpc :GetNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceExportSinkResponse
+
+  rpc :GetNamespaceExportSinks,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceExportSinksRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceExportSinksResponse
+
+  rpc :UpdateNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceExportSinkResponse
+
+  rpc :DeleteNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceExportSinkResponse
+
+  rpc :ValidateNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkResponse
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do
