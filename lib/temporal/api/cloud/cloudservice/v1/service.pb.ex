@@ -141,6 +141,18 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
       Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessRequest,
       Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessResponse
 
+  rpc :AddUserGroupMember,
+      Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberResponse
+
+  rpc :RemoveUserGroupMember,
+      Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberResponse
+
+  rpc :GetUserGroupMembers,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersResponse
+
   rpc :CreateServiceAccount,
       Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountRequest,
       Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountResponse
