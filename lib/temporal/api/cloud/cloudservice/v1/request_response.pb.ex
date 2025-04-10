@@ -573,6 +573,14 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest.GoogleGroupFil
   field :email_address, 1, type: :string, json_name: "emailAddress"
 end
 
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest.SCIMGroupFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :idp_id, 1, type: :string, json_name: "idpId"
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest do
   @moduledoc false
 
@@ -586,6 +594,10 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest do
   field :google_group, 5,
     type: Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest.GoogleGroupFilter,
     json_name: "googleGroup"
+
+  field :scim_group, 6,
+    type: Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest.SCIMGroupFilter,
+    json_name: "scimGroup"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsResponse do
@@ -695,6 +707,73 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessResponse
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
     json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :group_id, 1, type: :string, json_name: "groupId"
+
+  field :member_id, 2,
+    type: Temporal.Api.Cloud.Identity.V1.UserGroupMemberId,
+    json_name: "memberId"
+
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :group_id, 1, type: :string, json_name: "groupId"
+
+  field :member_id, 2,
+    type: Temporal.Api.Cloud.Identity.V1.UserGroupMemberId,
+    json_name: "memberId"
+
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :group_id, 3, type: :string, json_name: "groupId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :members, 1, repeated: true, type: Temporal.Api.Cloud.Identity.V1.UserGroupMember
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountRequest do

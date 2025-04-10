@@ -140,6 +140,12 @@ defmodule Temporal.Api.Cloud.Identity.V1.SCIMGroupSpec do
   field :idp_id, 1, type: :string, json_name: "idpId"
 end
 
+defmodule Temporal.Api.Cloud.Identity.V1.CloudGroupSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Temporal.Api.Cloud.Identity.V1.UserGroupSpec do
   @moduledoc false
 
@@ -159,6 +165,11 @@ defmodule Temporal.Api.Cloud.Identity.V1.UserGroupSpec do
     type: Temporal.Api.Cloud.Identity.V1.SCIMGroupSpec,
     json_name: "scimGroup",
     oneof: 0
+
+  field :cloud_group, 5,
+    type: Temporal.Api.Cloud.Identity.V1.CloudGroupSpec,
+    json_name: "cloudGroup",
+    oneof: 0
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.UserGroup do
@@ -174,6 +185,28 @@ defmodule Temporal.Api.Cloud.Identity.V1.UserGroup do
   field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
   field :created_time, 6, type: Google.Protobuf.Timestamp, json_name: "createdTime"
   field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroupMemberId do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :member_type, 0
+
+  field :user_id, 1, type: :string, json_name: "userId", oneof: 0
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroupMember do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :member_id, 1,
+    type: Temporal.Api.Cloud.Identity.V1.UserGroupMemberId,
+    json_name: "memberId"
+
+  field :created_time, 2, type: Google.Protobuf.Timestamp, json_name: "createdTime"
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccount do
