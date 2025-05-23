@@ -72,6 +72,24 @@ defmodule Temporal.Api.Cloud.Namespace.V1.ApiKeyAuthSpec do
   field :enabled, 1, type: :bool
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec.CustomErrorMessage.ErrorMessage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :message, 1, type: :string
+  field :link, 2, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec.CustomErrorMessage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :default, 1,
+    type: Temporal.Api.Cloud.Namespace.V1.CodecServerSpec.CustomErrorMessage.ErrorMessage
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec do
   @moduledoc false
 
@@ -83,6 +101,10 @@ defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec do
   field :include_cross_origin_credentials, 3,
     type: :bool,
     json_name: "includeCrossOriginCredentials"
+
+  field :custom_error_message, 4,
+    type: Temporal.Api.Cloud.Namespace.V1.CodecServerSpec.CustomErrorMessage,
+    json_name: "customErrorMessage"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.LifecycleSpec do
