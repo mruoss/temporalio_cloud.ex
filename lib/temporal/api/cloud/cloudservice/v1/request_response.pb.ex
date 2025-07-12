@@ -1044,3 +1044,85 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkResponse
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :spec, 1, type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRuleSpec
+  field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :connectivity_rule_id, 1, type: :string, json_name: "connectivityRuleId"
+
+  field :async_operation, 2,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :connectivity_rule_id, 1, type: :string, json_name: "connectivityRuleId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :connectivity_rule, 1,
+    type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRule,
+    json_name: "connectivityRule"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :namespace, 3, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :connectivity_rules, 1,
+    repeated: true,
+    type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRule,
+    json_name: "connectivityRules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :connectivity_rule_id, 1, type: :string, json_name: "connectivityRuleId"
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end

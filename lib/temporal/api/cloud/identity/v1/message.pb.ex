@@ -19,6 +19,7 @@ defmodule Temporal.Api.Cloud.Identity.V1.AccountAccess.Role do
   field :ROLE_DEVELOPER, 3
   field :ROLE_FINANCE_ADMIN, 4
   field :ROLE_READ, 5
+  field :ROLE_METRICS_READ, 6
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.NamespaceAccess.Permission do
