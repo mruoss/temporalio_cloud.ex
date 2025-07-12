@@ -180,6 +180,11 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
   field :high_availability, 10,
     type: Temporal.Api.Cloud.Namespace.V1.HighAvailabilitySpec,
     json_name: "highAvailability"
+
+  field :connectivity_rule_ids, 11,
+    repeated: true,
+    type: :string,
+    json_name: "connectivityRuleIds"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.Endpoints do
@@ -265,6 +270,11 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
     type: Temporal.Api.Cloud.Namespace.V1.Namespace.RegionStatusEntry,
     json_name: "regionStatus",
     map: true
+
+  field :connectivity_rules, 14,
+    repeated: true,
+    type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRule,
+    json_name: "connectivityRules"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus do

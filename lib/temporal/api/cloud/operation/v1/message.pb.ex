@@ -9,6 +9,7 @@ defmodule Temporal.Api.Cloud.Operation.V1.AsyncOperation.State do
   field :STATE_FAILED, 3
   field :STATE_CANCELLED, 4
   field :STATE_FULFILLED, 5
+  field :STATE_REJECTED, 6
 end
 
 defmodule Temporal.Api.Cloud.Operation.V1.AsyncOperation do

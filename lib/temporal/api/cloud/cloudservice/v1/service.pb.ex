@@ -208,6 +208,22 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :ValidateNamespaceExportSink,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkRequest,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkResponse
+
+  rpc :CreateConnectivityRule,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleResponse
+
+  rpc :GetConnectivityRule,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleResponse
+
+  rpc :GetConnectivityRules,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesResponse
+
+  rpc :DeleteConnectivityRule,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleResponse
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do
