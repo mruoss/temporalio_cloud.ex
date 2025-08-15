@@ -3,7 +3,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
 
   use GRPC.Service,
     name: "temporal.api.cloud.cloudservice.v1.CloudService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetUsers,
       Temporal.Api.Cloud.Cloudservice.V1.GetUsersRequest,
@@ -208,6 +208,10 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :ValidateNamespaceExportSink,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkRequest,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkResponse
+
+  rpc :UpdateNamespaceTags,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsResponse
 
   rpc :CreateConnectivityRule,
       Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleRequest,
