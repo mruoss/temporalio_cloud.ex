@@ -872,6 +872,28 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountResponse do
     json_name: "asyncOperation"
 end
 
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountNamespaceAccessRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :service_account_id, 1, type: :string, json_name: "serviceAccountId"
+  field :namespace, 2, type: :string
+  field :access, 3, type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess
+  field :resource_version, 4, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountNamespaceAccessResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteServiceAccountRequest do
   @moduledoc false
 
@@ -1175,4 +1197,18 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleResponse do
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
     json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :spec, 1, type: Temporal.Api.Cloud.Account.V1.AuditLogSinkSpec
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end

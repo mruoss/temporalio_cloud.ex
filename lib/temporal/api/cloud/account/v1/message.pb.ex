@@ -34,3 +34,25 @@ defmodule Temporal.Api.Cloud.Account.V1.Account do
   field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
   field :metrics, 6, type: Temporal.Api.Cloud.Account.V1.Metrics
 end
+
+defmodule Temporal.Api.Cloud.Account.V1.AuditLogSinkSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :sink_type, 0
+
+  field :name, 1, type: :string
+
+  field :kinesis_sink, 2,
+    type: Temporal.Api.Cloud.Sink.V1.KinesisSpec,
+    json_name: "kinesisSink",
+    oneof: 0
+
+  field :pub_sub_sink, 3,
+    type: Temporal.Api.Cloud.Sink.V1.PubSubSpec,
+    json_name: "pubSubSink",
+    oneof: 0
+
+  field :enabled, 4, type: :bool
+end
