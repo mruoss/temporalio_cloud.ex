@@ -8,10 +8,10 @@ defmodule Temporal.Api.Cloud.Auditlog.V1.LogRecord do
   field :status, 7, type: :string
   field :version, 9, type: :int32
   field :log_id, 10, type: :string, json_name: "logId"
-  field :async_operation_id, 11, type: :string, json_name: "asyncOperationId"
   field :principal, 12, type: Temporal.Api.Cloud.Auditlog.V1.Principal
   field :raw_details, 13, type: Google.Protobuf.Struct, json_name: "rawDetails"
   field :x_forwarded_for, 14, type: :string, json_name: "xForwardedFor"
+  field :async_operation_id, 15, type: :string, json_name: "asyncOperationId"
 end
 
 defmodule Temporal.Api.Cloud.Auditlog.V1.Principal do
