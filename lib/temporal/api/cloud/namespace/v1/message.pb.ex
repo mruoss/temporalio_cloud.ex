@@ -72,6 +72,24 @@ defmodule Temporal.Api.Cloud.Namespace.V1.ApiKeyAuthSpec do
   field :enabled, 1, type: :bool
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec.CustomErrorMessage.ErrorMessage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :message, 1, type: :string
+  field :link, 2, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec.CustomErrorMessage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :default, 1,
+    type: Temporal.Api.Cloud.Namespace.V1.CodecServerSpec.CustomErrorMessage.ErrorMessage
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec do
   @moduledoc false
 
@@ -83,6 +101,10 @@ defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec do
   field :include_cross_origin_credentials, 3,
     type: :bool,
     json_name: "includeCrossOriginCredentials"
+
+  field :custom_error_message, 4,
+    type: Temporal.Api.Cloud.Namespace.V1.CodecServerSpec.CustomErrorMessage,
+    json_name: "customErrorMessage"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.LifecycleSpec do
@@ -158,6 +180,11 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
   field :high_availability, 10,
     type: Temporal.Api.Cloud.Namespace.V1.HighAvailabilitySpec,
     json_name: "highAvailability"
+
+  field :connectivity_rule_ids, 11,
+    repeated: true,
+    type: :string,
+    json_name: "connectivityRuleIds"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.Endpoints do
@@ -215,6 +242,15 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Namespace.RegionStatusEntry do
   field :value, 2, type: Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.Namespace.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
   @moduledoc false
 
@@ -242,6 +278,16 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
     repeated: true,
     type: Temporal.Api.Cloud.Namespace.V1.Namespace.RegionStatusEntry,
     json_name: "regionStatus",
+    map: true
+
+  field :connectivity_rules, 14,
+    repeated: true,
+    type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRule,
+    json_name: "connectivityRules"
+
+  field :tags, 15,
+    repeated: true,
+    type: Temporal.Api.Cloud.Namespace.V1.Namespace.TagsEntry,
     map: true
 end
 

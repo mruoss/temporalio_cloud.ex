@@ -141,6 +141,18 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
       Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessRequest,
       Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessResponse
 
+  rpc :AddUserGroupMember,
+      Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberResponse
+
+  rpc :RemoveUserGroupMember,
+      Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberResponse
+
+  rpc :GetUserGroupMembers,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersResponse
+
   rpc :CreateServiceAccount,
       Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountRequest,
       Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountResponse
@@ -156,6 +168,10 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :UpdateServiceAccount,
       Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountRequest,
       Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountResponse
+
+  rpc :SetServiceAccountNamespaceAccess,
+      Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountNamespaceAccessRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountNamespaceAccessResponse
 
   rpc :DeleteServiceAccount,
       Temporal.Api.Cloud.Cloudservice.V1.DeleteServiceAccountRequest,
@@ -196,6 +212,30 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :ValidateNamespaceExportSink,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkRequest,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkResponse
+
+  rpc :UpdateNamespaceTags,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsResponse
+
+  rpc :CreateConnectivityRule,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleResponse
+
+  rpc :GetConnectivityRule,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleResponse
+
+  rpc :GetConnectivityRules,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesResponse
+
+  rpc :DeleteConnectivityRule,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleResponse
+
+  rpc :ValidateAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkResponse
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do

@@ -136,6 +136,15 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetAsyncOperationResponse do
     json_name: "asyncOperation"
 end
 
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceRequest.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceRequest do
   @moduledoc false
 
@@ -143,6 +152,11 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceRequest do
 
   field :spec, 2, type: Temporal.Api.Cloud.Namespace.V1.NamespaceSpec
   field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+
+  field :tags, 4,
+    repeated: true,
+    type: Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceRequest.TagsEntry,
+    map: true
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceResponse do
@@ -573,6 +587,14 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest.GoogleGroupFil
   field :email_address, 1, type: :string, json_name: "emailAddress"
 end
 
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest.SCIMGroupFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :idp_id, 1, type: :string, json_name: "idpId"
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest do
   @moduledoc false
 
@@ -586,6 +608,10 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest do
   field :google_group, 5,
     type: Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest.GoogleGroupFilter,
     json_name: "googleGroup"
+
+  field :scim_group, 6,
+    type: Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest.SCIMGroupFilter,
+    json_name: "scimGroup"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsResponse do
@@ -697,6 +723,73 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessResponse
     json_name: "asyncOperation"
 end
 
+defmodule Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :group_id, 1, type: :string, json_name: "groupId"
+
+  field :member_id, 2,
+    type: Temporal.Api.Cloud.Identity.V1.UserGroupMemberId,
+    json_name: "memberId"
+
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :group_id, 1, type: :string, json_name: "groupId"
+
+  field :member_id, 2,
+    type: Temporal.Api.Cloud.Identity.V1.UserGroupMemberId,
+    json_name: "memberId"
+
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :group_id, 3, type: :string, json_name: "groupId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :members, 1, repeated: true, type: Temporal.Api.Cloud.Identity.V1.UserGroupMember
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountRequest do
   @moduledoc false
 
@@ -770,6 +863,28 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountRequest do
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountNamespaceAccessRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :service_account_id, 1, type: :string, json_name: "serviceAccountId"
+  field :namespace, 2, type: :string
+  field :access, 3, type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess
+  field :resource_version, 4, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountNamespaceAccessResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
@@ -961,6 +1076,138 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkRequest 
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsRequest.TagsToUpsertEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :namespace, 1, type: :string
+
+  field :tags_to_upsert, 2,
+    repeated: true,
+    type: Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsRequest.TagsToUpsertEntry,
+    json_name: "tagsToUpsert",
+    map: true
+
+  field :tags_to_remove, 3, repeated: true, type: :string, json_name: "tagsToRemove"
+  field :async_operation_id, 4, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :spec, 1, type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRuleSpec
+  field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :connectivity_rule_id, 1, type: :string, json_name: "connectivityRuleId"
+
+  field :async_operation, 2,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :connectivity_rule_id, 1, type: :string, json_name: "connectivityRuleId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :connectivity_rule, 1,
+    type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRule,
+    json_name: "connectivityRule"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :namespace, 3, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :connectivity_rules, 1,
+    repeated: true,
+    type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRule,
+    json_name: "connectivityRules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :connectivity_rule_id, 1, type: :string, json_name: "connectivityRuleId"
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :spec, 1, type: Temporal.Api.Cloud.Account.V1.AuditLogSinkSpec
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
