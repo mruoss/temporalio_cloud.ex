@@ -53,7 +53,11 @@ defmodule Temporal.Api.Cloud.Namespace.V1.MtlsAuthSpec do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :accepted_client_ca_deprecated, 1, type: :string, json_name: "acceptedClientCaDeprecated"
+  field :accepted_client_ca_deprecated, 1,
+    type: :string,
+    json_name: "acceptedClientCaDeprecated",
+    deprecated: true
+
   field :accepted_client_ca, 4, type: :bytes, json_name: "acceptedClientCa"
 
   field :certificate_filters, 2,

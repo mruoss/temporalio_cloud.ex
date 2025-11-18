@@ -236,6 +236,26 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :ValidateAccountAuditLogSink,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkRequest,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkResponse
+
+  rpc :CreateAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateAccountAuditLogSinkResponse
+
+  rpc :GetAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinkResponse
+
+  rpc :GetAccountAuditLogSinks,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinksRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinksResponse
+
+  rpc :UpdateAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountAuditLogSinkResponse
+
+  rpc :DeleteAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteAccountAuditLogSinkResponse
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do
