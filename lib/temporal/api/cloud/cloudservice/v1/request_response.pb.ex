@@ -1212,3 +1212,96 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkResponse
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateAccountAuditLogSinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :spec, 1, type: Temporal.Api.Cloud.Account.V1.AuditLogSinkSpec
+  field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateAccountAuditLogSinkResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinkResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :sink, 1, type: Temporal.Api.Cloud.Account.V1.AuditLogSink
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinksRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinksResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :sinks, 1, repeated: true, type: Temporal.Api.Cloud.Account.V1.AuditLogSink
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountAuditLogSinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :spec, 1, type: Temporal.Api.Cloud.Account.V1.AuditLogSinkSpec
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountAuditLogSinkResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteAccountAuditLogSinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteAccountAuditLogSinkResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end

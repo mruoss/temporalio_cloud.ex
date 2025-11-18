@@ -1,3 +1,14 @@
+defmodule Temporal.Api.Cloud.Account.V1.AuditLogSink.Health do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :HEALTH_UNSPECIFIED, 0
+  field :HEALTH_OK, 1
+  field :HEALTH_ERROR_INTERNAL, 2
+  field :HEALTH_ERROR_USER_CONFIGURATION, 3
+end
+
 defmodule Temporal.Api.Cloud.Account.V1.MetricsSpec do
   @moduledoc false
 
@@ -55,4 +66,18 @@ defmodule Temporal.Api.Cloud.Account.V1.AuditLogSinkSpec do
     oneof: 0
 
   field :enabled, 4, type: :bool
+end
+
+defmodule Temporal.Api.Cloud.Account.V1.AuditLogSink do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :state, 3, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
+  field :spec, 4, type: Temporal.Api.Cloud.Account.V1.AuditLogSinkSpec
+  field :health, 5, type: Temporal.Api.Cloud.Account.V1.AuditLogSink.Health, enum: true
+  field :error_message, 6, type: :string, json_name: "errorMessage"
+  field :last_succeeded_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastSucceededTime"
 end
