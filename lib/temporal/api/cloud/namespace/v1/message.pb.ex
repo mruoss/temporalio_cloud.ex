@@ -1,3 +1,14 @@
+defmodule Temporal.Api.Cloud.Namespace.V1.Capacity.Request.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :STATE_CAPACITY_REQUEST_UNSPECIFIED, 0
+  field :STATE_CAPACITY_REQUEST_COMPLETED, 1
+  field :STATE_CAPACITY_REQUEST_IN_PROGRESS, 2
+  field :STATE_CAPACITY_REQUEST_FAILED, 3
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.SearchAttributeType do
   @moduledoc false
 
@@ -76,6 +87,14 @@ defmodule Temporal.Api.Cloud.Namespace.V1.ApiKeyAuthSpec do
   field :enabled, 1, type: :bool
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.LifecycleSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :enable_delete_protection, 1, type: :bool, json_name: "enableDeleteProtection"
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec.CustomErrorMessage.ErrorMessage do
   @moduledoc false
 
@@ -111,20 +130,86 @@ defmodule Temporal.Api.Cloud.Namespace.V1.CodecServerSpec do
     json_name: "customErrorMessage"
 end
 
-defmodule Temporal.Api.Cloud.Namespace.V1.LifecycleSpec do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :enable_delete_protection, 1, type: :bool, json_name: "enableDeleteProtection"
-end
-
 defmodule Temporal.Api.Cloud.Namespace.V1.HighAvailabilitySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disable_managed_failover, 1, type: :bool, json_name: "disableManagedFailover"
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.CapacitySpec.OnDemand do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.CapacitySpec.Provisioned do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :value, 1, type: :double
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.CapacitySpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :spec, 0
+
+  field :on_demand, 1,
+    type: Temporal.Api.Cloud.Namespace.V1.CapacitySpec.OnDemand,
+    json_name: "onDemand",
+    oneof: 0
+
+  field :provisioned, 2, type: Temporal.Api.Cloud.Namespace.V1.CapacitySpec.Provisioned, oneof: 0
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.Capacity.OnDemand do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.Capacity.Provisioned do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :current_value, 1, type: :double, json_name: "currentValue"
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.Capacity.Request do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :state, 1, type: Temporal.Api.Cloud.Namespace.V1.Capacity.Request.State, enum: true
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :async_operation_id, 4, type: :string, json_name: "asyncOperationId"
+  field :spec, 5, type: Temporal.Api.Cloud.Namespace.V1.CapacitySpec
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.Capacity do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :current_mode, 0
+
+  field :on_demand, 1,
+    type: Temporal.Api.Cloud.Namespace.V1.Capacity.OnDemand,
+    json_name: "onDemand",
+    oneof: 0
+
+  field :provisioned, 2, type: Temporal.Api.Cloud.Namespace.V1.Capacity.Provisioned, oneof: 0
+
+  field :latest_request, 3,
+    type: Temporal.Api.Cloud.Namespace.V1.Capacity.Request,
+    json_name: "latestRequest"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.CustomSearchAttributesEntry do
@@ -189,6 +274,10 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
     repeated: true,
     type: :string,
     json_name: "connectivityRuleIds"
+
+  field :capacity_spec, 12,
+    type: Temporal.Api.Cloud.Namespace.V1.CapacitySpec,
+    json_name: "capacitySpec"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.Endpoints do
@@ -293,6 +382,8 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
     repeated: true,
     type: Temporal.Api.Cloud.Namespace.V1.Namespace.TagsEntry,
     map: true
+
+  field :capacity, 16, type: Temporal.Api.Cloud.Namespace.V1.Capacity
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus do
