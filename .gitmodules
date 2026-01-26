@@ -7,3 +7,6 @@
 [submodule "src/temporalio_api"]
 	path = src/temporalio_api
 	url = https://github.com/temporalio/api.git
+[submodule "src/grpc_gateway"]
+	path = src/grpc_gateway
+	url = https://github.com/grpc-ecosystem/grpc-gateway.git

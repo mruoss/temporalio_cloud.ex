@@ -1,7 +1,10 @@
 defmodule Temporal.Api.Cloud.Sink.V1.S3Spec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.sink.v1.S3Spec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :role_name, 1, type: :string, json_name: "roleName"
   field :bucket_name, 2, type: :string, json_name: "bucketName"
@@ -13,7 +16,10 @@ end
 defmodule Temporal.Api.Cloud.Sink.V1.GCSSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.sink.v1.GCSSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :sa_id, 1, type: :string, json_name: "saId"
   field :bucket_name, 2, type: :string, json_name: "bucketName"
@@ -24,7 +30,10 @@ end
 defmodule Temporal.Api.Cloud.Sink.V1.KinesisSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.sink.v1.KinesisSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :role_name, 1, type: :string, json_name: "roleName"
   field :destination_uri, 2, type: :string, json_name: "destinationUri"
@@ -34,7 +43,10 @@ end
 defmodule Temporal.Api.Cloud.Sink.V1.PubSubSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.sink.v1.PubSubSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :service_account_id, 1, type: :string, json_name: "serviceAccountId"
   field :topic_name, 2, type: :string, json_name: "topicName"

@@ -1,7 +1,11 @@
 defmodule Temporal.Api.Cloud.Operation.V1.AsyncOperation.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.operation.v1.AsyncOperation.State",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_PENDING, 1
@@ -15,7 +19,10 @@ end
 defmodule Temporal.Api.Cloud.Operation.V1.AsyncOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.operation.v1.AsyncOperation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :id, 1, type: :string
   field :state_deprecated, 2, type: :string, json_name: "stateDeprecated", deprecated: true

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 #MISE description="Checkout the latest tag from temporal cloud"
 
+git submodule init
 REF=$(cd src/temporalio_cloud_api && git describe --tags `git rev-list --tags --max-count=1`);
 (cd src/temporalio_cloud_api && git checkout ${REF})
+git submodule update --init src/temporalio_api
+git submodule update --init src/googleapis
+git submodule update --init src/grpc_gateway

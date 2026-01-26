@@ -1,7 +1,10 @@
 defmodule Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.connectivityrule.v1.ConnectivityRule",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :id, 1, type: :string
   field :spec, 2, type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRuleSpec
@@ -14,7 +17,10 @@ end
 defmodule Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRuleSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.connectivityrule.v1.ConnectivityRuleSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :connection_type, 0
 
@@ -32,13 +38,19 @@ end
 defmodule Temporal.Api.Cloud.Connectivityrule.V1.PublicConnectivityRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.connectivityrule.v1.PublicConnectivityRule",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Temporal.Api.Cloud.Connectivityrule.V1.PrivateConnectivityRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.connectivityrule.v1.PrivateConnectivityRule",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :connection_id, 1, type: :string, json_name: "connectionId"
   field :gcp_project_id, 2, type: :string, json_name: "gcpProjectId"

@@ -1,7 +1,11 @@
 defmodule Temporal.Api.Cloud.Account.V1.AuditLogSink.Health do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.account.v1.AuditLogSink.Health",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :HEALTH_UNSPECIFIED, 0
   field :HEALTH_OK, 1
@@ -12,7 +16,10 @@ end
 defmodule Temporal.Api.Cloud.Account.V1.MetricsSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.account.v1.MetricsSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :accepted_client_ca, 2, type: :bytes, json_name: "acceptedClientCa"
 end
@@ -20,7 +27,10 @@ end
 defmodule Temporal.Api.Cloud.Account.V1.AccountSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.account.v1.AccountSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :metrics, 1, type: Temporal.Api.Cloud.Account.V1.MetricsSpec
 end
@@ -28,7 +38,10 @@ end
 defmodule Temporal.Api.Cloud.Account.V1.Metrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.account.v1.Metrics",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :uri, 1, type: :string
 end
@@ -36,7 +49,10 @@ end
 defmodule Temporal.Api.Cloud.Account.V1.Account do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.account.v1.Account",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :id, 1, type: :string
   field :spec, 2, type: Temporal.Api.Cloud.Account.V1.AccountSpec
@@ -49,7 +65,10 @@ end
 defmodule Temporal.Api.Cloud.Account.V1.AuditLogSinkSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.account.v1.AuditLogSinkSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof :sink_type, 0
 
@@ -71,7 +90,10 @@ end
 defmodule Temporal.Api.Cloud.Account.V1.AuditLogSink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.account.v1.AuditLogSink",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :name, 1, type: :string
   field :resource_version, 2, type: :string, json_name: "resourceVersion"

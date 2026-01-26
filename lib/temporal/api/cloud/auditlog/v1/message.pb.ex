@@ -1,7 +1,10 @@
 defmodule Temporal.Api.Cloud.Auditlog.V1.LogRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.auditlog.v1.LogRecord",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :emit_time, 1, type: Google.Protobuf.Timestamp, json_name: "emitTime"
   field :operation, 5, type: :string
@@ -17,7 +20,10 @@ end
 defmodule Temporal.Api.Cloud.Auditlog.V1.Principal do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.auditlog.v1.Principal",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :type, 1, type: :string
   field :id, 2, type: :string

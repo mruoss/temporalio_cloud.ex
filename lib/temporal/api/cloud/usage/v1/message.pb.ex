@@ -1,7 +1,11 @@
 defmodule Temporal.Api.Cloud.Usage.V1.RecordType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.usage.v1.RecordType",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :RECORD_TYPE_UNSPECIFIED, 0
   field :RECORD_TYPE_ACTIONS, 1
@@ -12,7 +16,11 @@ end
 defmodule Temporal.Api.Cloud.Usage.V1.RecordUnit do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.usage.v1.RecordUnit",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :RECORD_UNIT_UNSPECIFIED, 0
   field :RECORD_UNIT_NUMBER, 1
@@ -22,7 +30,11 @@ end
 defmodule Temporal.Api.Cloud.Usage.V1.GroupByKey do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.usage.v1.GroupByKey",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :GROUP_BY_KEY_UNSPECIFIED, 0
   field :GROUP_BY_KEY_NAMESPACE, 1
@@ -31,7 +43,10 @@ end
 defmodule Temporal.Api.Cloud.Usage.V1.Summary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.usage.v1.Summary",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -47,7 +62,10 @@ end
 defmodule Temporal.Api.Cloud.Usage.V1.RecordGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.usage.v1.RecordGroup",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :group_bys, 1,
     repeated: true,
@@ -60,7 +78,10 @@ end
 defmodule Temporal.Api.Cloud.Usage.V1.GroupBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.usage.v1.GroupBy",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :key, 1, type: Temporal.Api.Cloud.Usage.V1.GroupByKey, enum: true
   field :value, 2, type: :string
@@ -69,7 +90,10 @@ end
 defmodule Temporal.Api.Cloud.Usage.V1.Record do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf,
+    full_name: "temporal.api.cloud.usage.v1.Record",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field :type, 1, type: Temporal.Api.Cloud.Usage.V1.RecordType, enum: true
   field :unit, 2, type: Temporal.Api.Cloud.Usage.V1.RecordUnit, enum: true

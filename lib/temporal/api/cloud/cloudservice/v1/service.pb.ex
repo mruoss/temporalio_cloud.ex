@@ -3,7 +3,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
 
   use GRPC.Service,
     name: "temporal.api.cloud.cloudservice.v1.CloudService",
-    protoc_gen_elixir_version: "0.15.0"
+    protoc_gen_elixir_version: "0.16.0"
 
   rpc :GetUsers,
       Temporal.Api.Cloud.Cloudservice.V1.GetUsersRequest,
@@ -232,6 +232,10 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :DeleteConnectivityRule,
       Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleRequest,
       Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleResponse
+
+  rpc :GetAuditLogs,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAuditLogsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAuditLogsResponse
 
   rpc :ValidateAccountAuditLogSink,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkRequest,
