@@ -5,6 +5,10 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
     name: "temporal.api.cloud.cloudservice.v1.CloudService",
     protoc_gen_elixir_version: "0.16.0"
 
+  rpc :GetCurrentIdentity,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCurrentIdentityRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCurrentIdentityResponse
+
   rpc :GetUsers,
       Temporal.Api.Cloud.Cloudservice.V1.GetUsersRequest,
       Temporal.Api.Cloud.Cloudservice.V1.GetUsersResponse
@@ -260,6 +264,10 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :DeleteAccountAuditLogSink,
       Temporal.Api.Cloud.Cloudservice.V1.DeleteAccountAuditLogSinkRequest,
       Temporal.Api.Cloud.Cloudservice.V1.DeleteAccountAuditLogSinkResponse
+
+  rpc :GetNamespaceCapacityInfo,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceCapacityInfoRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceCapacityInfoResponse
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do
