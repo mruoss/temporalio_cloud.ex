@@ -531,3 +531,90 @@ defmodule Temporal.Api.Cloud.Namespace.V1.ExportSink do
     type: Google.Protobuf.Timestamp,
     json_name: "lastHealthCheckTime"
 end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.CapacityModeOptions.Provisioned do
+  @moduledoc false
+
+  use Protobuf,
+    full_name:
+      "temporal.api.cloud.namespace.v1.NamespaceCapacityInfo.CapacityModeOptions.Provisioned",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :valid_tru_values, 1, repeated: true, type: :double, json_name: "validTruValues"
+  field :max_available_tru_value, 2, type: :double, json_name: "maxAvailableTruValue"
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.CapacityModeOptions.OnDemand do
+  @moduledoc false
+
+  use Protobuf,
+    full_name:
+      "temporal.api.cloud.namespace.v1.NamespaceCapacityInfo.CapacityModeOptions.OnDemand",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :aps_limit, 1, type: :double, json_name: "apsLimit"
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.CapacityModeOptions do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.NamespaceCapacityInfo.CapacityModeOptions",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :provisioned, 1,
+    type: Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.CapacityModeOptions.Provisioned
+
+  field :on_demand, 2,
+    type: Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.CapacityModeOptions.OnDemand,
+    json_name: "onDemand"
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.Stats.Summary do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.NamespaceCapacityInfo.Stats.Summary",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :mean, 1, type: :double
+  field :p90, 2, type: :double
+  field :p99, 3, type: :double
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.Stats do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.NamespaceCapacityInfo.Stats",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :aps, 1, type: Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.Stats.Summary
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.NamespaceCapacityInfo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :has_legacy_limits, 2, type: :bool, json_name: "hasLegacyLimits"
+
+  field :current_capacity, 3,
+    type: Temporal.Api.Cloud.Namespace.V1.Capacity,
+    json_name: "currentCapacity"
+
+  field :mode_options, 4,
+    type: Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.CapacityModeOptions,
+    json_name: "modeOptions"
+
+  field :stats, 5, type: Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo.Stats
+end

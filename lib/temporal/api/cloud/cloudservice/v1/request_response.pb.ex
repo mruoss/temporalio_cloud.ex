@@ -1,3 +1,34 @@
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCurrentIdentityRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCurrentIdentityRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCurrentIdentityResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCurrentIdentityResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  oneof :principal, 0
+
+  field :user, 1, type: Temporal.Api.Cloud.Identity.V1.User, oneof: 0
+
+  field :service_account, 2,
+    type: Temporal.Api.Cloud.Identity.V1.ServiceAccount,
+    json_name: "serviceAccount",
+    oneof: 0
+
+  field :principal_api_key, 3,
+    type: Temporal.Api.Cloud.Identity.V1.ApiKey,
+    json_name: "principalApiKey"
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUsersRequest do
   @moduledoc false
 
@@ -1722,4 +1753,28 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteAccountAuditLogSinkResponse d
   field :async_operation, 1,
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
     json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceCapacityInfoRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetNamespaceCapacityInfoRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceCapacityInfoResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetNamespaceCapacityInfoResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :capacity_info, 1,
+    type: Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo,
+    json_name: "capacityInfo"
 end
