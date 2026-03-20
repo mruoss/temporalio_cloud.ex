@@ -268,6 +268,14 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :GetNamespaceCapacityInfo,
       Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceCapacityInfoRequest,
       Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceCapacityInfoResponse
+
+  rpc :CreateBillingReport,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateBillingReportRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateBillingReportResponse
+
+  rpc :GetBillingReport,
+      Temporal.Api.Cloud.Cloudservice.V1.GetBillingReportRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetBillingReportResponse
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do

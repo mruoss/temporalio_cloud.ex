@@ -1778,3 +1778,54 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceCapacityInfoResponse do
     type: Temporal.Api.Cloud.Namespace.V1.NamespaceCapacityInfo,
     json_name: "capacityInfo"
 end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateBillingReportRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.CreateBillingReportRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :spec, 1, type: Temporal.Api.Cloud.Billing.V1.BillingReportSpec
+  field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateBillingReportResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.CreateBillingReportResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :billing_report_id, 1, type: :string, json_name: "billingReportId"
+
+  field :async_operation, 2,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetBillingReportRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetBillingReportRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :billing_report_id, 1, type: :string, json_name: "billingReportId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetBillingReportResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetBillingReportResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :billing_report, 1,
+    type: Temporal.Api.Cloud.Billing.V1.BillingReport,
+    json_name: "billingReport"
+end
