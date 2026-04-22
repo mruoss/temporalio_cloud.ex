@@ -55,6 +55,7 @@ defmodule Temporal.Api.Cloud.Identity.V1.AccountAccess do
 
   field :role_deprecated, 1, type: :string, json_name: "roleDeprecated", deprecated: true
   field :role, 2, type: Temporal.Api.Cloud.Identity.V1.AccountAccess.Role, enum: true
+  field :custom_roles, 3, repeated: true, type: :string, json_name: "customRoles"
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.NamespaceAccess do
@@ -105,6 +106,12 @@ defmodule Temporal.Api.Cloud.Identity.V1.Access do
     type: Temporal.Api.Cloud.Identity.V1.Access.NamespaceAccessesEntry,
     json_name: "namespaceAccesses",
     map: true
+
+  field :custom_roles_deprecated, 4,
+    repeated: true,
+    type: :string,
+    json_name: "customRolesDeprecated",
+    deprecated: true
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.NamespaceScopedAccess do
@@ -346,4 +353,62 @@ defmodule Temporal.Api.Cloud.Identity.V1.ApiKeySpec do
   field :description, 4, type: :string
   field :expiry_time, 5, type: Google.Protobuf.Timestamp, json_name: "expiryTime"
   field :disabled, 6, type: :bool
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.CustomRoleSpec.Resources do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.CustomRoleSpec.Resources",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :resource_type, 1, type: :string, json_name: "resourceType"
+  field :resource_ids, 2, repeated: true, type: :string, json_name: "resourceIds"
+  field :allow_all, 3, type: :bool, json_name: "allowAll"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.CustomRoleSpec.Permission do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.CustomRoleSpec.Permission",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :resources, 1, type: Temporal.Api.Cloud.Identity.V1.CustomRoleSpec.Resources
+  field :actions, 2, repeated: true, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.CustomRoleSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.CustomRoleSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :name, 1, type: :string
+  field :description, 2, type: :string
+
+  field :permissions, 3,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.CustomRoleSpec.Permission
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.CustomRole do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.CustomRole",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :spec, 3, type: Temporal.Api.Cloud.Identity.V1.CustomRoleSpec
+  field :state, 4, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+  field :created_time, 6, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+  field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
 end

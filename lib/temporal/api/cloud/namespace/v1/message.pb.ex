@@ -1,3 +1,19 @@
+defmodule Temporal.Api.Cloud.Namespace.V1.Replica.ReplicaState do
+  @moduledoc false
+
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.namespace.v1.Replica.ReplicaState",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :REPLICA_STATE_UNSPECIFIED, 0
+  field :REPLICA_STATE_ADDING, 1
+  field :REPLICA_STATE_ACTIVE, 2
+  field :REPLICA_STATE_REMOVING, 3
+  field :REPLICA_STATE_FAILED, 5
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.Capacity.Request.State do
   @moduledoc false
 
@@ -176,6 +192,35 @@ defmodule Temporal.Api.Cloud.Namespace.V1.HighAvailabilitySpec do
     syntax: :proto3
 
   field :disable_managed_failover, 1, type: :bool, json_name: "disableManagedFailover"
+
+  field :disable_passive_poller_forwarding, 2,
+    type: :bool,
+    json_name: "disablePassivePollerForwarding"
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.ReplicaSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.ReplicaSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :region, 1, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.Replica do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.Replica",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :is_primary, 2, type: :bool, json_name: "isPrimary"
+  field :state, 3, type: Temporal.Api.Cloud.Namespace.V1.Replica.ReplicaState, enum: true
+  field :region, 4, type: :string
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.CapacitySpec.OnDemand do
@@ -311,7 +356,7 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
     syntax: :proto3
 
   field :name, 1, type: :string
-  field :regions, 2, repeated: true, type: :string
+  field :regions, 2, repeated: true, type: :string, deprecated: true
   field :retention_days, 3, type: :int32, json_name: "retentionDays"
   field :mtls_auth, 4, type: Temporal.Api.Cloud.Namespace.V1.MtlsAuthSpec, json_name: "mtlsAuth"
 
@@ -350,6 +395,8 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
   field :capacity_spec, 12,
     type: Temporal.Api.Cloud.Namespace.V1.CapacitySpec,
     json_name: "capacitySpec"
+
+  field :replicas, 13, repeated: true, type: Temporal.Api.Cloud.Namespace.V1.ReplicaSpec
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.Endpoints do
@@ -466,7 +513,8 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
     repeated: true,
     type: Temporal.Api.Cloud.Namespace.V1.Namespace.RegionStatusEntry,
     json_name: "regionStatus",
-    map: true
+    map: true,
+    deprecated: true
 
   field :connectivity_rules, 14,
     repeated: true,
@@ -479,6 +527,7 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
     map: true
 
   field :capacity, 16, type: Temporal.Api.Cloud.Namespace.V1.Capacity
+  field :replicas, 18, repeated: true, type: Temporal.Api.Cloud.Namespace.V1.Replica
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus do

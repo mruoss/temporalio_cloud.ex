@@ -1829,3 +1829,133 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetBillingReportResponse do
     type: Temporal.Api.Cloud.Billing.V1.BillingReport,
     json_name: "billingReport"
 end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCustomRolesRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCustomRolesRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCustomRolesResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCustomRolesResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :custom_roles, 1,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.CustomRole,
+    json_name: "customRoles"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCustomRoleRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCustomRoleRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :role_id, 1, type: :string, json_name: "roleId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCustomRoleResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCustomRoleResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :custom_role, 1, type: Temporal.Api.Cloud.Identity.V1.CustomRole, json_name: "customRole"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateCustomRoleRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.CreateCustomRoleRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :spec, 1, type: Temporal.Api.Cloud.Identity.V1.CustomRoleSpec
+  field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateCustomRoleResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.CreateCustomRoleResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :role_id, 1, type: :string, json_name: "roleId"
+
+  field :async_operation, 2,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateCustomRoleRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.UpdateCustomRoleRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :role_id, 1, type: :string, json_name: "roleId"
+  field :spec, 2, type: Temporal.Api.Cloud.Identity.V1.CustomRoleSpec
+  field :resource_version, 3, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 4, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateCustomRoleResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.UpdateCustomRoleResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.DeleteCustomRoleRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :role_id, 1, type: :string, json_name: "roleId"
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.DeleteCustomRoleResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
