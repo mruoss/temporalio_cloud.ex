@@ -276,6 +276,26 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :GetBillingReport,
       Temporal.Api.Cloud.Cloudservice.V1.GetBillingReportRequest,
       Temporal.Api.Cloud.Cloudservice.V1.GetBillingReportResponse
+
+  rpc :GetCustomRoles,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCustomRolesRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCustomRolesResponse
+
+  rpc :GetCustomRole,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCustomRoleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCustomRoleResponse
+
+  rpc :CreateCustomRole,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateCustomRoleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateCustomRoleResponse
+
+  rpc :UpdateCustomRole,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateCustomRoleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateCustomRoleResponse
+
+  rpc :DeleteCustomRole,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleResponse
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do
