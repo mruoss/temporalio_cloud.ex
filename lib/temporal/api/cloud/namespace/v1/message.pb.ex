@@ -318,6 +318,17 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Capacity do
     json_name: "latestRequest"
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.FairnessSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.FairnessSpec",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :task_queue_fairness_enabled, 1, type: :bool, json_name: "taskQueueFairnessEnabled"
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.CustomSearchAttributesEntry do
   @moduledoc false
 
@@ -397,6 +408,7 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
     json_name: "capacitySpec"
 
   field :replicas, 13, repeated: true, type: Temporal.Api.Cloud.Namespace.V1.ReplicaSpec
+  field :fairness, 14, type: Temporal.Api.Cloud.Namespace.V1.FairnessSpec
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.Endpoints do
