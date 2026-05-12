@@ -42,6 +42,8 @@ defmodule Temporal.Api.Cloud.Connectivityrule.V1.PublicConnectivityRule do
     full_name: "temporal.api.cloud.connectivityrule.v1.PublicConnectivityRule",
     protoc_gen_elixir_version: "0.16.0",
     syntax: :proto3
+
+  field :enable_stable_ips, 1, type: :bool, json_name: "enableStableIps"
 end
 
 defmodule Temporal.Api.Cloud.Connectivityrule.V1.PrivateConnectivityRule do
