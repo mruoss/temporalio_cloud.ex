@@ -1,3 +1,18 @@
+defmodule Temporal.Api.Cloud.Billing.V1.BillingReportSpec.BillingReportGranularity do
+  @moduledoc false
+
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.billing.v1.BillingReportSpec.BillingReportGranularity",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :BILLING_REPORT_GRANULARITY_UNSPECIFIED, 0
+  field :BILLING_REPORT_GRANULARITY_HOURLY, 1
+  field :BILLING_REPORT_GRANULARITY_DAILY, 2
+  field :BILLING_REPORT_GRANULARITY_MONTHLY, 3
+end
+
 defmodule Temporal.Api.Cloud.Billing.V1.BillingReport.BillingReportState do
   @moduledoc false
 
@@ -42,6 +57,10 @@ defmodule Temporal.Api.Cloud.Billing.V1.BillingReportSpec do
     json_name: "downloadUrlExpirationDuration"
 
   field :description, 4, type: :string
+
+  field :granularity, 5,
+    type: Temporal.Api.Cloud.Billing.V1.BillingReportSpec.BillingReportGranularity,
+    enum: true
 end
 
 defmodule Temporal.Api.Cloud.Billing.V1.BillingReport.Download do
