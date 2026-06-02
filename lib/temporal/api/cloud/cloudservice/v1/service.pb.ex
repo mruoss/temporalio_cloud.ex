@@ -296,6 +296,18 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :DeleteCustomRole,
       Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleRequest,
       Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleResponse
+
+  rpc :GetUserNamespaceAssignments,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserNamespaceAssignmentsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserNamespaceAssignmentsResponse
+
+  rpc :GetServiceAccountNamespaceAssignments,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountNamespaceAssignmentsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountNamespaceAssignmentsResponse
+
+  rpc :GetUserGroupNamespaceAssignments,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupNamespaceAssignmentsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupNamespaceAssignmentsResponse
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do
