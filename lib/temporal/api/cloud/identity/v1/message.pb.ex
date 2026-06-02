@@ -412,3 +412,60 @@ defmodule Temporal.Api.Cloud.Identity.V1.CustomRole do
   field :created_time, 6, type: Google.Protobuf.Timestamp, json_name: "createdTime"
   field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
 end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserNamespaceAssignment do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserNamespaceAssignment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :email, 2, type: :string
+
+  field :namespace_access, 3,
+    type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess,
+    json_name: "namespaceAccess"
+
+  field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
+  field :resource_version, 5, type: :string, json_name: "resourceVersion"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccountNamespaceAssignment do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ServiceAccountNamespaceAssignment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :name, 2, type: :string
+
+  field :namespace_access, 3,
+    type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess,
+    json_name: "namespaceAccess"
+
+  field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
+  field :resource_version, 5, type: :string, json_name: "resourceVersion"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroupNamespaceAssignment do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserGroupNamespaceAssignment",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :namespace_access, 3,
+    type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess,
+    json_name: "namespaceAccess"
+
+  field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
+  field :resource_version, 5, type: :string, json_name: "resourceVersion"
+end

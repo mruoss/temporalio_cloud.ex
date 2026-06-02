@@ -1959,3 +1959,85 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleResponse do
     type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
     json_name: "asyncOperation"
 end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserNamespaceAssignmentsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetUserNamespaceAssignmentsRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserNamespaceAssignmentsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetUserNamespaceAssignmentsResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :users, 1, repeated: true, type: Temporal.Api.Cloud.Identity.V1.UserNamespaceAssignment
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountNamespaceAssignmentsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetServiceAccountNamespaceAssignmentsRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountNamespaceAssignmentsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetServiceAccountNamespaceAssignmentsResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :service_accounts, 1,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.ServiceAccountNamespaceAssignment,
+    json_name: "serviceAccounts"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupNamespaceAssignmentsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetUserGroupNamespaceAssignmentsRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupNamespaceAssignmentsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetUserGroupNamespaceAssignmentsResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field :groups, 1,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.UserGroupNamespaceAssignment
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
