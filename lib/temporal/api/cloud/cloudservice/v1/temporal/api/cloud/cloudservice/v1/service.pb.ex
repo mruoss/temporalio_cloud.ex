@@ -1,0 +1,317 @@
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "temporal.api.cloud.cloudservice.v1.CloudService",
+    protoc_gen_elixir_version: "0.17.0"
+
+  rpc :GetCurrentIdentity,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCurrentIdentityRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCurrentIdentityResponse
+
+  rpc :GetUsers,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUsersRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUsersResponse
+
+  rpc :GetUser,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserResponse
+
+  rpc :CreateUser,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateUserRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateUserResponse
+
+  rpc :UpdateUser,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateUserRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateUserResponse
+
+  rpc :DeleteUser,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteUserRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteUserResponse
+
+  rpc :SetUserNamespaceAccess,
+      Temporal.Api.Cloud.Cloudservice.V1.SetUserNamespaceAccessRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.SetUserNamespaceAccessResponse
+
+  rpc :GetAsyncOperation,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAsyncOperationRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAsyncOperationResponse
+
+  rpc :CreateNamespace,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceResponse
+
+  rpc :GetNamespaces,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespacesRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespacesResponse
+
+  rpc :GetNamespace,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceResponse
+
+  rpc :UpdateNamespace,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceResponse
+
+  rpc :RenameCustomSearchAttribute,
+      Temporal.Api.Cloud.Cloudservice.V1.RenameCustomSearchAttributeRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.RenameCustomSearchAttributeResponse
+
+  rpc :DeleteNamespace,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceResponse
+
+  rpc :FailoverNamespaceRegion,
+      Temporal.Api.Cloud.Cloudservice.V1.FailoverNamespaceRegionRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.FailoverNamespaceRegionResponse
+
+  rpc :AddNamespaceRegion,
+      Temporal.Api.Cloud.Cloudservice.V1.AddNamespaceRegionRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.AddNamespaceRegionResponse
+
+  rpc :DeleteNamespaceRegion,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceRegionRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceRegionResponse
+
+  rpc :GetRegions,
+      Temporal.Api.Cloud.Cloudservice.V1.GetRegionsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetRegionsResponse
+
+  rpc :GetRegion,
+      Temporal.Api.Cloud.Cloudservice.V1.GetRegionRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetRegionResponse
+
+  rpc :GetApiKeys,
+      Temporal.Api.Cloud.Cloudservice.V1.GetApiKeysRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetApiKeysResponse
+
+  rpc :GetApiKey,
+      Temporal.Api.Cloud.Cloudservice.V1.GetApiKeyRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetApiKeyResponse
+
+  rpc :CreateApiKey,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateApiKeyRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateApiKeyResponse
+
+  rpc :UpdateApiKey,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateApiKeyRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateApiKeyResponse
+
+  rpc :DeleteApiKey,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteApiKeyRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteApiKeyResponse
+
+  rpc :GetNexusEndpoints,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointsResponse
+
+  rpc :GetNexusEndpoint,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointResponse
+
+  rpc :CreateNexusEndpoint,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateNexusEndpointRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateNexusEndpointResponse
+
+  rpc :UpdateNexusEndpoint,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNexusEndpointRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNexusEndpointResponse
+
+  rpc :DeleteNexusEndpoint,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNexusEndpointRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNexusEndpointResponse
+
+  rpc :GetUserGroups,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupsResponse
+
+  rpc :GetUserGroup,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupResponse
+
+  rpc :CreateUserGroup,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateUserGroupRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateUserGroupResponse
+
+  rpc :UpdateUserGroup,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateUserGroupRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateUserGroupResponse
+
+  rpc :DeleteUserGroup,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteUserGroupRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteUserGroupResponse
+
+  rpc :SetUserGroupNamespaceAccess,
+      Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupNamespaceAccessResponse
+
+  rpc :AddUserGroupMember,
+      Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.AddUserGroupMemberResponse
+
+  rpc :RemoveUserGroupMember,
+      Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.RemoveUserGroupMemberResponse
+
+  rpc :GetUserGroupMembers,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupMembersResponse
+
+  rpc :CreateServiceAccount,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateServiceAccountResponse
+
+  rpc :GetServiceAccount,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountResponse
+
+  rpc :GetServiceAccounts,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountsResponse
+
+  rpc :UpdateServiceAccount,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountResponse
+
+  rpc :SetServiceAccountNamespaceAccess,
+      Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountNamespaceAccessRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountNamespaceAccessResponse
+
+  rpc :DeleteServiceAccount,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteServiceAccountRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteServiceAccountResponse
+
+  rpc :GetUsage,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUsageRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUsageResponse
+
+  rpc :GetAccount,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountResponse
+
+  rpc :UpdateAccount,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountResponse
+
+  rpc :CreateNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceExportSinkResponse
+
+  rpc :GetNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceExportSinkResponse
+
+  rpc :GetNamespaceExportSinks,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceExportSinksRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceExportSinksResponse
+
+  rpc :UpdateNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceExportSinkResponse
+
+  rpc :DeleteNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteNamespaceExportSinkResponse
+
+  rpc :ValidateNamespaceExportSink,
+      Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkResponse
+
+  rpc :UpdateNamespaceTags,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsResponse
+
+  rpc :CreateConnectivityRule,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleResponse
+
+  rpc :GetConnectivityRule,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRuleResponse
+
+  rpc :GetConnectivityRules,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesResponse
+
+  rpc :DeleteConnectivityRule,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteConnectivityRuleResponse
+
+  rpc :GetAuditLogs,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAuditLogsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAuditLogsResponse
+
+  rpc :ValidateAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.ValidateAccountAuditLogSinkResponse
+
+  rpc :CreateAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateAccountAuditLogSinkResponse
+
+  rpc :GetAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinkResponse
+
+  rpc :GetAccountAuditLogSinks,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinksRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetAccountAuditLogSinksResponse
+
+  rpc :UpdateAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateAccountAuditLogSinkResponse
+
+  rpc :DeleteAccountAuditLogSink,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteAccountAuditLogSinkRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteAccountAuditLogSinkResponse
+
+  rpc :GetNamespaceCapacityInfo,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceCapacityInfoRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetNamespaceCapacityInfoResponse
+
+  rpc :CreateBillingReport,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateBillingReportRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateBillingReportResponse
+
+  rpc :GetBillingReport,
+      Temporal.Api.Cloud.Cloudservice.V1.GetBillingReportRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetBillingReportResponse
+
+  rpc :GetCustomRoles,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCustomRolesRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCustomRolesResponse
+
+  rpc :GetCustomRole,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCustomRoleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCustomRoleResponse
+
+  rpc :CreateCustomRole,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateCustomRoleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateCustomRoleResponse
+
+  rpc :UpdateCustomRole,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateCustomRoleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateCustomRoleResponse
+
+  rpc :DeleteCustomRole,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleResponse
+
+  rpc :GetUserNamespaceAssignments,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserNamespaceAssignmentsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserNamespaceAssignmentsResponse
+
+  rpc :GetServiceAccountNamespaceAssignments,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountNamespaceAssignmentsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountNamespaceAssignmentsResponse
+
+  rpc :GetUserGroupNamespaceAssignments,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupNamespaceAssignmentsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupNamespaceAssignmentsResponse
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service
+end
