@@ -1,0 +1,471 @@
+defmodule Temporal.Api.Cloud.Identity.V1.OwnerType do
+  @moduledoc false
+
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.identity.v1.OwnerType",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :OWNER_TYPE_UNSPECIFIED, 0
+  field :OWNER_TYPE_USER, 1
+  field :OWNER_TYPE_SERVICE_ACCOUNT, 2
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.AccountAccess.Role do
+  @moduledoc false
+
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.identity.v1.AccountAccess.Role",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :ROLE_UNSPECIFIED, 0
+  field :ROLE_OWNER, 1
+  field :ROLE_ADMIN, 2
+  field :ROLE_DEVELOPER, 3
+  field :ROLE_FINANCE_ADMIN, 4
+  field :ROLE_READ, 5
+  field :ROLE_METRICS_READ, 6
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.NamespaceAccess.Permission do
+  @moduledoc false
+
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.identity.v1.NamespaceAccess.Permission",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :PERMISSION_UNSPECIFIED, 0
+  field :PERMISSION_ADMIN, 1
+  field :PERMISSION_WRITE, 2
+  field :PERMISSION_READ, 3
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.AccountAccess do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.AccountAccess",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :role_deprecated, 1, type: :string, json_name: "roleDeprecated", deprecated: true
+  field :role, 2, type: Temporal.Api.Cloud.Identity.V1.AccountAccess.Role, enum: true
+  field :custom_roles, 3, repeated: true, type: :string, json_name: "customRoles"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.NamespaceAccess do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.NamespaceAccess",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :permission_deprecated, 1,
+    type: :string,
+    json_name: "permissionDeprecated",
+    deprecated: true
+
+  field :permission, 2,
+    type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess.Permission,
+    enum: true
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.Access.NamespaceAccessesEntry do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.Access.NamespaceAccessesEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.Access do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.Access",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :account_access, 1,
+    type: Temporal.Api.Cloud.Identity.V1.AccountAccess,
+    json_name: "accountAccess"
+
+  field :namespace_accesses, 2,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.Access.NamespaceAccessesEntry,
+    json_name: "namespaceAccesses",
+    map: true
+
+  field :custom_roles_deprecated, 4,
+    repeated: true,
+    type: :string,
+    json_name: "customRolesDeprecated",
+    deprecated: true
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.NamespaceScopedAccess do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.NamespaceScopedAccess",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :access, 2, type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserSpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :email, 1, type: :string
+  field :access, 2, type: Temporal.Api.Cloud.Identity.V1.Access
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.Invitation do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.Invitation",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :created_time, 1, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+  field :expired_time, 2, type: Google.Protobuf.Timestamp, json_name: "expiredTime"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.User do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.User",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :spec, 3, type: Temporal.Api.Cloud.Identity.V1.UserSpec
+  field :state_deprecated, 4, type: :string, json_name: "stateDeprecated", deprecated: true
+  field :state, 9, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+  field :invitation, 6, type: Temporal.Api.Cloud.Identity.V1.Invitation
+  field :created_time, 7, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+  field :last_modified_time, 8, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.GoogleGroupSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.GoogleGroupSpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :email_address, 1, type: :string, json_name: "emailAddress"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.SCIMGroupSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.SCIMGroupSpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :idp_id, 1, type: :string, json_name: "idpId"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.CloudGroupSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.CloudGroupSpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroupSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserGroupSpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  oneof :group_type, 0
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :access, 2, type: Temporal.Api.Cloud.Identity.V1.Access
+
+  field :google_group, 3,
+    type: Temporal.Api.Cloud.Identity.V1.GoogleGroupSpec,
+    json_name: "googleGroup",
+    oneof: 0
+
+  field :scim_group, 4,
+    type: Temporal.Api.Cloud.Identity.V1.SCIMGroupSpec,
+    json_name: "scimGroup",
+    oneof: 0
+
+  field :cloud_group, 5,
+    type: Temporal.Api.Cloud.Identity.V1.CloudGroupSpec,
+    json_name: "cloudGroup",
+    oneof: 0
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroup do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserGroup",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :spec, 3, type: Temporal.Api.Cloud.Identity.V1.UserGroupSpec
+  field :state_deprecated, 4, type: :string, json_name: "stateDeprecated", deprecated: true
+  field :state, 8, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+  field :created_time, 6, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+  field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroupMemberId do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserGroupMemberId",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  oneof :member_type, 0
+
+  field :user_id, 1, type: :string, json_name: "userId", oneof: 0
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroupMember do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserGroupMember",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :member_id, 1,
+    type: Temporal.Api.Cloud.Identity.V1.UserGroupMemberId,
+    json_name: "memberId"
+
+  field :created_time, 2, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccount do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ServiceAccount",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :spec, 3, type: Temporal.Api.Cloud.Identity.V1.ServiceAccountSpec
+  field :state_deprecated, 4, type: :string, json_name: "stateDeprecated", deprecated: true
+  field :state, 8, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+  field :created_time, 6, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+  field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccountSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ServiceAccountSpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :name, 1, type: :string
+  field :access, 2, type: Temporal.Api.Cloud.Identity.V1.Access
+
+  field :namespace_scoped_access, 4,
+    type: Temporal.Api.Cloud.Identity.V1.NamespaceScopedAccess,
+    json_name: "namespaceScopedAccess"
+
+  field :description, 3, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.ApiKey do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ApiKey",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :spec, 3, type: Temporal.Api.Cloud.Identity.V1.ApiKeySpec
+  field :state_deprecated, 4, type: :string, json_name: "stateDeprecated", deprecated: true
+  field :state, 8, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+  field :created_time, 6, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+  field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.ApiKeySpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ApiKeySpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :owner_id, 1, type: :string, json_name: "ownerId"
+
+  field :owner_type_deprecated, 2,
+    type: :string,
+    json_name: "ownerTypeDeprecated",
+    deprecated: true
+
+  field :owner_type, 7,
+    type: Temporal.Api.Cloud.Identity.V1.OwnerType,
+    json_name: "ownerType",
+    enum: true
+
+  field :display_name, 3, type: :string, json_name: "displayName"
+  field :description, 4, type: :string
+  field :expiry_time, 5, type: Google.Protobuf.Timestamp, json_name: "expiryTime"
+  field :disabled, 6, type: :bool
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.CustomRoleSpec.Resources do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.CustomRoleSpec.Resources",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :resource_type, 1, type: :string, json_name: "resourceType"
+  field :resource_ids, 2, repeated: true, type: :string, json_name: "resourceIds"
+  field :allow_all, 3, type: :bool, json_name: "allowAll"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.CustomRoleSpec.Permission do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.CustomRoleSpec.Permission",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :resources, 1, type: Temporal.Api.Cloud.Identity.V1.CustomRoleSpec.Resources
+  field :actions, 2, repeated: true, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.CustomRoleSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.CustomRoleSpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :name, 1, type: :string
+  field :description, 2, type: :string
+
+  field :permissions, 3,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.CustomRoleSpec.Permission
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.CustomRole do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.CustomRole",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :spec, 3, type: Temporal.Api.Cloud.Identity.V1.CustomRoleSpec
+  field :state, 4, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+  field :created_time, 6, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+  field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserNamespaceAssignment do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserNamespaceAssignment",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :email, 2, type: :string
+
+  field :namespace_access, 3,
+    type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess,
+    json_name: "namespaceAccess"
+
+  field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
+  field :resource_version, 5, type: :string, json_name: "resourceVersion"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccountNamespaceAssignment do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ServiceAccountNamespaceAssignment",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :name, 2, type: :string
+
+  field :namespace_access, 3,
+    type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess,
+    json_name: "namespaceAccess"
+
+  field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
+  field :resource_version, 5, type: :string, json_name: "resourceVersion"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroupNamespaceAssignment do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserGroupNamespaceAssignment",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :namespace_access, 3,
+    type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess,
+    json_name: "namespaceAccess"
+
+  field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
+  field :resource_version, 5, type: :string, json_name: "resourceVersion"
+end
