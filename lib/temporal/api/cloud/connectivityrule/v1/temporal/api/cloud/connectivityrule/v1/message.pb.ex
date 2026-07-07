@@ -12,6 +12,7 @@ defmodule Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRule do
   field :state, 5, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
   field :async_operation_id, 6, type: :string, json_name: "asyncOperationId"
   field :created_time, 7, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+  field :project_id, 8, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRuleSpec do
@@ -57,4 +58,5 @@ defmodule Temporal.Api.Cloud.Connectivityrule.V1.PrivateConnectivityRule do
   field :connection_id, 1, type: :string, json_name: "connectionId"
   field :gcp_project_id, 2, type: :string, json_name: "gcpProjectId"
   field :region, 3, type: :string
+  field :azure_pe_resource_id, 5, type: :string, json_name: "azurePeResourceId"
 end

@@ -45,6 +45,25 @@ defmodule Temporal.Api.Cloud.Identity.V1.NamespaceAccess.Permission do
   field :PERMISSION_READ, 3
 end
 
+defmodule Temporal.Api.Cloud.Identity.V1.ProjectAccess.ProjectRole do
+  @moduledoc false
+
+  use Protobuf,
+    enum: true,
+    full_name: "temporal.api.cloud.identity.v1.ProjectAccess.ProjectRole",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :PROJECT_ROLE_UNSPECIFIED, 0
+  field :PROJECT_ROLE_ADMIN, 1
+  field :PROJECT_ROLE_WRITE, 2
+  field :PROJECT_ROLE_READ, 3
+  field :PROJECT_ROLE_LIST, 4
+  field :PROJECT_ROLE_CONTRIBUTE, 5
+  field :PROJECT_ROLE_MEMBER, 6
+  field :PROJECT_ROLE_DEVELOPER, 7
+end
+
 defmodule Temporal.Api.Cloud.Identity.V1.AccountAccess do
   @moduledoc false
 
@@ -76,6 +95,17 @@ defmodule Temporal.Api.Cloud.Identity.V1.NamespaceAccess do
     enum: true
 end
 
+defmodule Temporal.Api.Cloud.Identity.V1.ProjectAccess do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ProjectAccess",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :role, 1, type: Temporal.Api.Cloud.Identity.V1.ProjectAccess.ProjectRole, enum: true
+end
+
 defmodule Temporal.Api.Cloud.Identity.V1.Access.NamespaceAccessesEntry do
   @moduledoc false
 
@@ -87,6 +117,19 @@ defmodule Temporal.Api.Cloud.Identity.V1.Access.NamespaceAccessesEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.Access.ProjectAccessesEntry do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.Access.ProjectAccessesEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Temporal.Api.Cloud.Identity.V1.ProjectAccess
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.Access do
@@ -107,6 +150,12 @@ defmodule Temporal.Api.Cloud.Identity.V1.Access do
     json_name: "namespaceAccesses",
     map: true
 
+  field :project_accesses, 3,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.Access.ProjectAccessesEntry,
+    json_name: "projectAccesses",
+    map: true
+
   field :custom_roles_deprecated, 4,
     repeated: true,
     type: :string,
@@ -124,6 +173,37 @@ defmodule Temporal.Api.Cloud.Identity.V1.NamespaceScopedAccess do
 
   field :namespace, 1, type: :string
   field :access, 2, type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.ProjectScopedAccess.NamespaceAccessesEntry do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ProjectScopedAccess.NamespaceAccessesEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.ProjectScopedAccess do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ProjectScopedAccess",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :access, 2, type: Temporal.Api.Cloud.Identity.V1.ProjectAccess
+
+  field :namespace_accesses, 3,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.ProjectScopedAccess.NamespaceAccessesEntry,
+    json_name: "namespaceAccesses",
+    map: true
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.UserSpec do
@@ -308,6 +388,10 @@ defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccountSpec do
     type: Temporal.Api.Cloud.Identity.V1.NamespaceScopedAccess,
     json_name: "namespaceScopedAccess"
 
+  field :project_scoped_access, 5,
+    type: Temporal.Api.Cloud.Identity.V1.ProjectScopedAccess,
+    json_name: "projectScopedAccess"
+
   field :description, 3, type: :string
 end
 
@@ -413,6 +497,25 @@ defmodule Temporal.Api.Cloud.Identity.V1.CustomRole do
   field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
 end
 
+defmodule Temporal.Api.Cloud.Identity.V1.UserProjectAssignment do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserProjectAssignment",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :email, 2, type: :string
+
+  field :project_access, 3,
+    type: Temporal.Api.Cloud.Identity.V1.ProjectAccess,
+    json_name: "projectAccess"
+
+  field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
+  field :resource_version, 5, type: :string, json_name: "resourceVersion"
+end
+
 defmodule Temporal.Api.Cloud.Identity.V1.UserNamespaceAssignment do
   @moduledoc false
 
@@ -432,6 +535,25 @@ defmodule Temporal.Api.Cloud.Identity.V1.UserNamespaceAssignment do
   field :resource_version, 5, type: :string, json_name: "resourceVersion"
 end
 
+defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccountProjectAssignment do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.ServiceAccountProjectAssignment",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :name, 2, type: :string
+
+  field :project_access, 3,
+    type: Temporal.Api.Cloud.Identity.V1.ProjectAccess,
+    json_name: "projectAccess"
+
+  field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
+  field :resource_version, 5, type: :string, json_name: "resourceVersion"
+end
+
 defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccountNamespaceAssignment do
   @moduledoc false
 
@@ -446,6 +568,25 @@ defmodule Temporal.Api.Cloud.Identity.V1.ServiceAccountNamespaceAssignment do
   field :namespace_access, 3,
     type: Temporal.Api.Cloud.Identity.V1.NamespaceAccess,
     json_name: "namespaceAccess"
+
+  field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
+  field :resource_version, 5, type: :string, json_name: "resourceVersion"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroupProjectAssignment do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserGroupProjectAssignment",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :project_access, 3,
+    type: Temporal.Api.Cloud.Identity.V1.ProjectAccess,
+    json_name: "projectAccess"
 
   field :inherited_access, 4, type: :bool, json_name: "inheritedAccess"
   field :resource_version, 5, type: :string, json_name: "resourceVersion"

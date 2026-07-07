@@ -540,6 +540,7 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
 
   field :capacity, 16, type: Temporal.Api.Cloud.Namespace.V1.Capacity
   field :replicas, 18, repeated: true, type: Temporal.Api.Cloud.Namespace.V1.Replica
+  field :project_id, 17, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus do

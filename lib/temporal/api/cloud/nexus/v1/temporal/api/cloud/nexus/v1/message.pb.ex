@@ -95,4 +95,5 @@ defmodule Temporal.Api.Cloud.Nexus.V1.Endpoint do
   field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
   field :created_time, 6, type: Google.Protobuf.Timestamp, json_name: "createdTime"
   field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+  field :project_id, 8, type: :string, json_name: "projectId"
 end

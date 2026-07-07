@@ -308,6 +308,54 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
   rpc :GetUserGroupNamespaceAssignments,
       Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupNamespaceAssignmentsRequest,
       Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupNamespaceAssignmentsResponse
+
+  rpc :GetProjects,
+      Temporal.Api.Cloud.Cloudservice.V1.GetProjectsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetProjectsResponse
+
+  rpc :GetProject,
+      Temporal.Api.Cloud.Cloudservice.V1.GetProjectRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetProjectResponse
+
+  rpc :CreateProject,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateProjectRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateProjectResponse
+
+  rpc :UpdateProject,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateProjectRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateProjectResponse
+
+  rpc :DeleteProject,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteProjectRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteProjectResponse
+
+  rpc :SetUserProjectAccess,
+      Temporal.Api.Cloud.Cloudservice.V1.SetUserProjectAccessRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.SetUserProjectAccessResponse
+
+  rpc :SetUserGroupProjectAccess,
+      Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupProjectAccessRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupProjectAccessResponse
+
+  rpc :SetServiceAccountProjectAccess,
+      Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountProjectAccessRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountProjectAccessResponse
+
+  rpc :GetUserProjectAssignments,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserProjectAssignmentsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserProjectAssignmentsResponse
+
+  rpc :GetServiceAccountProjectAssignments,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountProjectAssignmentsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountProjectAssignmentsResponse
+
+  rpc :GetUserGroupProjectAssignments,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupProjectAssignmentsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupProjectAssignmentsResponse
+
+  rpc :GetProjectScopedServiceAccounts,
+      Temporal.Api.Cloud.Cloudservice.V1.GetProjectScopedServiceAccountsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetProjectScopedServiceAccountsResponse
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Stub do
