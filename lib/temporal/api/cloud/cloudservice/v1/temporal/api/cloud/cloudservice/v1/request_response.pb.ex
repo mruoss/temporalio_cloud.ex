@@ -237,6 +237,8 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceRequest do
     repeated: true,
     type: Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceRequest.TagsEntry,
     map: true
+
+  field :project_id, 5, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNamespaceResponse do
@@ -265,6 +267,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNamespacesRequest do
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :name, 3, type: :string
+  field :project_id, 4, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNamespacesResponse do
@@ -666,6 +669,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointsRequest do
   field :target_namespace_id, 3, type: :string, json_name: "targetNamespaceId"
   field :target_task_queue, 4, type: :string, json_name: "targetTaskQueue"
   field :name, 5, type: :string
+  field :project_id, 6, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetNexusEndpointsResponse do
@@ -712,6 +716,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNexusEndpointRequest do
 
   field :spec, 1, type: Temporal.Api.Cloud.Nexus.V1.EndpointSpec
   field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
+  field :project_id, 3, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateNexusEndpointResponse do
@@ -1132,6 +1137,35 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetProjectScopedServiceAccountsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetProjectScopedServiceAccountsRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetProjectScopedServiceAccountsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetProjectScopedServiceAccountsResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :service_accounts, 1,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.ServiceAccount,
+    json_name: "serviceAccounts"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateServiceAccountRequest do
   @moduledoc false
 
@@ -1490,6 +1524,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleRequest do
 
   field :spec, 1, type: Temporal.Api.Cloud.Connectivityrule.V1.ConnectivityRuleSpec
   field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
+  field :project_id, 3, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateConnectivityRuleResponse do
@@ -1542,6 +1577,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesRequest do
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :namespace, 3, type: :string
+  field :project_id, 4, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetConnectivityRulesResponse do
@@ -1960,6 +1996,88 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteCustomRoleResponse do
     json_name: "asyncOperation"
 end
 
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserProjectAssignmentsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetUserProjectAssignmentsRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserProjectAssignmentsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetUserProjectAssignmentsResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :users, 1, repeated: true, type: Temporal.Api.Cloud.Identity.V1.UserProjectAssignment
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountProjectAssignmentsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetServiceAccountProjectAssignmentsRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetServiceAccountProjectAssignmentsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetServiceAccountProjectAssignmentsResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :service_accounts, 1,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.ServiceAccountProjectAssignment,
+    json_name: "serviceAccounts"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupProjectAssignmentsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetUserGroupProjectAssignmentsRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupProjectAssignmentsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetUserGroupProjectAssignmentsResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :groups, 1,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.UserGroupProjectAssignment
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserNamespaceAssignmentsRequest do
   @moduledoc false
 
@@ -2040,4 +2158,215 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserGroupNamespaceAssignmentsRes
     type: Temporal.Api.Cloud.Identity.V1.UserGroupNamespaceAssignment
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetProjectsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetProjectsRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize"
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :project_ids, 3, repeated: true, type: :string, json_name: "projectIds"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetProjectsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetProjectsResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :projects, 1, repeated: true, type: Temporal.Api.Cloud.Project.V1.Project
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetProjectRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetProjectRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetProjectResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetProjectResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project, 1, type: Temporal.Api.Cloud.Project.V1.Project
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateProjectRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.CreateProjectRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :spec, 1, type: Temporal.Api.Cloud.Project.V1.ProjectSpec
+  field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateProjectResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.CreateProjectResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+
+  field :async_operation, 2,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateProjectRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.UpdateProjectRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :spec, 2, type: Temporal.Api.Cloud.Project.V1.ProjectSpec
+  field :resource_version, 3, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 4, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateProjectResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.UpdateProjectResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteProjectRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.DeleteProjectRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteProjectResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.DeleteProjectResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserProjectAccessRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.SetUserProjectAccessRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :user_id, 2, type: :string, json_name: "userId"
+  field :access, 3, type: Temporal.Api.Cloud.Identity.V1.ProjectAccess
+  field :resource_version, 4, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserProjectAccessResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.SetUserProjectAccessResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupProjectAccessRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.SetUserGroupProjectAccessRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :group_id, 2, type: :string, json_name: "groupId"
+  field :access, 3, type: Temporal.Api.Cloud.Identity.V1.ProjectAccess
+  field :resource_version, 4, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetUserGroupProjectAccessResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.SetUserGroupProjectAccessResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountProjectAccessRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.SetServiceAccountProjectAccessRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :service_account_id, 2, type: :string, json_name: "serviceAccountId"
+  field :access, 3, type: Temporal.Api.Cloud.Identity.V1.ProjectAccess
+  field :resource_version, 4, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.SetServiceAccountProjectAccessResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.SetServiceAccountProjectAccessResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
 end
