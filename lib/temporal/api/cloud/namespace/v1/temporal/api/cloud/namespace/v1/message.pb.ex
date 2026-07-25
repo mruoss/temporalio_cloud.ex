@@ -568,6 +568,7 @@ defmodule Temporal.Api.Cloud.Namespace.V1.ExportSinkSpec do
   field :enabled, 2, type: :bool
   field :s3, 3, type: Temporal.Api.Cloud.Sink.V1.S3Spec
   field :gcs, 4, type: Temporal.Api.Cloud.Sink.V1.GCSSpec
+  field :azure_blob, 5, type: Temporal.Api.Cloud.Sink.V1.AzureBlobSpec, json_name: "azureBlob"
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.ExportSink do
