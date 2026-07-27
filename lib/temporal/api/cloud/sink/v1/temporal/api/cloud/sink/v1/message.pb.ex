@@ -27,6 +27,22 @@ defmodule Temporal.Api.Cloud.Sink.V1.GCSSpec do
   field :region, 4, type: :string
 end
 
+defmodule Temporal.Api.Cloud.Sink.V1.AzureBlobSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.sink.v1.AzureBlobSpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :tenant_id, 1, type: :string, json_name: "tenantId"
+  field :storage_account, 2, type: :string, json_name: "storageAccount"
+  field :container_name, 3, type: :string, json_name: "containerName"
+  field :region, 4, type: :string
+  field :subscription_id, 5, type: :string, json_name: "subscriptionId"
+  field :resource_group, 6, type: :string, json_name: "resourceGroup"
+end
+
 defmodule Temporal.Api.Cloud.Sink.V1.KinesisSpec do
   @moduledoc false
 
