@@ -24,6 +24,17 @@ defmodule Temporal.Api.Cloud.Account.V1.MetricsSpec do
   field :accepted_client_ca, 2, type: :bytes, json_name: "acceptedClientCa"
 end
 
+defmodule Temporal.Api.Cloud.Account.V1.AuthenticationSettings do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.account.v1.AuthenticationSettings",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :restrict_session_lifetimes, 1, type: :bool, json_name: "restrictSessionLifetimes"
+end
+
 defmodule Temporal.Api.Cloud.Account.V1.AccountSpec do
   @moduledoc false
 
@@ -33,6 +44,10 @@ defmodule Temporal.Api.Cloud.Account.V1.AccountSpec do
     syntax: :proto3
 
   field :metrics, 1, type: Temporal.Api.Cloud.Account.V1.MetricsSpec
+
+  field :authentication_settings, 2,
+    type: Temporal.Api.Cloud.Account.V1.AuthenticationSettings,
+    json_name: "authenticationSettings"
 end
 
 defmodule Temporal.Api.Cloud.Account.V1.Metrics do
