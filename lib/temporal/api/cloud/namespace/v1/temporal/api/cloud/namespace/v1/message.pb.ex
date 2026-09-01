@@ -409,6 +409,7 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
 
   field :replicas, 13, repeated: true, type: Temporal.Api.Cloud.Namespace.V1.ReplicaSpec
   field :fairness, 14, type: Temporal.Api.Cloud.Namespace.V1.FairnessSpec
+  field :description, 16, type: :string
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.Endpoints do
