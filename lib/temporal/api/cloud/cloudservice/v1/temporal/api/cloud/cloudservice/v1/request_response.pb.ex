@@ -2261,6 +2261,63 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateProjectResponse do
     json_name: "asyncOperation"
 end
 
+defmodule Temporal.Api.Cloud.Cloudservice.V1.ConnectivityRuleIDs do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.ConnectivityRuleIDs",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :connectivity_rule_ids, 1, repeated: true, type: :string, json_name: "connectivityRuleIds"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.NoConnectivityRules do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.NoConnectivityRules",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.MoveNamespaceToProjectRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.MoveNamespaceToProjectRequest",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  oneof :destination_connectivity_rules, 0
+
+  field :namespace, 1, type: :string
+  field :destination_project_id, 2, type: :string, json_name: "destinationProjectId"
+  field :expected_source_project_id, 3, type: :string, json_name: "expectedSourceProjectId"
+  field :resource_version, 4, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+
+  field :rule_ids, 6,
+    type: Temporal.Api.Cloud.Cloudservice.V1.ConnectivityRuleIDs,
+    json_name: "ruleIds",
+    oneof: 0
+
+  field :unrestricted, 7, type: Temporal.Api.Cloud.Cloudservice.V1.NoConnectivityRules, oneof: 0
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.MoveNamespaceToProjectResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.MoveNamespaceToProjectResponse",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteProjectRequest do
   @moduledoc false
 

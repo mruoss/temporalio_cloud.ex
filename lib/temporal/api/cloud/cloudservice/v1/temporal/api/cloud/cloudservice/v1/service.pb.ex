@@ -325,6 +325,10 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
       Temporal.Api.Cloud.Cloudservice.V1.UpdateProjectRequest,
       Temporal.Api.Cloud.Cloudservice.V1.UpdateProjectResponse
 
+  rpc :MoveNamespaceToProject,
+      Temporal.Api.Cloud.Cloudservice.V1.MoveNamespaceToProjectRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.MoveNamespaceToProjectResponse
+
   rpc :DeleteProject,
       Temporal.Api.Cloud.Cloudservice.V1.DeleteProjectRequest,
       Temporal.Api.Cloud.Cloudservice.V1.DeleteProjectResponse
