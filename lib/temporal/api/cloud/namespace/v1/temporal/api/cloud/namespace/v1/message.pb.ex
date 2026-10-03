@@ -29,6 +29,22 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Capacity.Request.State do
   field :STATE_CAPACITY_REQUEST_FAILED, 3
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.EncryptionValidationSpec.EncryptionValidationMode do
+  @moduledoc false
+
+  use Protobuf,
+    enum: true,
+    full_name:
+      "temporal.api.cloud.namespace.v1.EncryptionValidationSpec.EncryptionValidationMode",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :ENCRYPTION_VALIDATION_MODE_UNSPECIFIED, 0
+  field :ENCRYPTION_VALIDATION_MODE_DISABLED, 1
+  field :ENCRYPTION_VALIDATION_MODE_WARN, 2
+  field :ENCRYPTION_VALIDATION_MODE_DENY, 3
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.SearchAttributeType do
   @moduledoc false
 
@@ -329,6 +345,24 @@ defmodule Temporal.Api.Cloud.Namespace.V1.FairnessSpec do
   field :task_queue_fairness_enabled, 1, type: :bool, json_name: "taskQueueFairnessEnabled"
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.EncryptionValidationSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.EncryptionValidationSpec",
+    protoc_gen_elixir_version: "0.17.0",
+    syntax: :proto3
+
+  field :mode, 1,
+    type: Temporal.Api.Cloud.Namespace.V1.EncryptionValidationSpec.EncryptionValidationMode,
+    enum: true
+
+  field :metadata_key, 2, type: :string, json_name: "metadataKey"
+  field :metadata_values, 3, repeated: true, type: :string, json_name: "metadataValues"
+  field :inspect_header, 4, type: :bool, json_name: "inspectHeader"
+  field :inspect_failure, 5, type: :bool, json_name: "inspectFailure"
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec.CustomSearchAttributesEntry do
   @moduledoc false
 
@@ -409,6 +443,11 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceSpec do
 
   field :replicas, 13, repeated: true, type: Temporal.Api.Cloud.Namespace.V1.ReplicaSpec
   field :fairness, 14, type: Temporal.Api.Cloud.Namespace.V1.FairnessSpec
+
+  field :encryption_validation, 15,
+    type: Temporal.Api.Cloud.Namespace.V1.EncryptionValidationSpec,
+    json_name: "encryptionValidation"
+
   field :description, 16, type: :string
 end
 
