@@ -596,6 +596,19 @@ defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus do
   field :async_operation_id, 2, type: :string, json_name: "asyncOperationId"
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.ExportSinkSpec.SinkFilter do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.ExportSinkSpec.SinkFilter",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :disable_standalone_activity_export, 1,
+    type: :bool,
+    json_name: "disableStandaloneActivityExport"
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.ExportSinkSpec do
   @moduledoc false
 
@@ -609,6 +622,7 @@ defmodule Temporal.Api.Cloud.Namespace.V1.ExportSinkSpec do
   field :s3, 3, type: Temporal.Api.Cloud.Sink.V1.S3Spec
   field :gcs, 4, type: Temporal.Api.Cloud.Sink.V1.GCSSpec
   field :azure_blob, 5, type: Temporal.Api.Cloud.Sink.V1.AzureBlobSpec, json_name: "azureBlob"
+  field :filter, 6, type: Temporal.Api.Cloud.Namespace.V1.ExportSinkSpec.SinkFilter
 end
 
 defmodule Temporal.Api.Cloud.Namespace.V1.ExportSink do
