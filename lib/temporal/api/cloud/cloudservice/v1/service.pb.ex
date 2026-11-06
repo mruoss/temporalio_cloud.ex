@@ -221,6 +221,26 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.CloudService.Service do
       Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkRequest,
       Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkResponse
 
+  rpc :CreateCallerRateLimit,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateCallerRateLimitRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.CreateCallerRateLimitResponse
+
+  rpc :GetCallerRateLimit,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitResponse
+
+  rpc :GetCallerRateLimits,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitsRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitsResponse
+
+  rpc :UpdateCallerRateLimit,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateCallerRateLimitRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.UpdateCallerRateLimitResponse
+
+  rpc :DeleteCallerRateLimit,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteCallerRateLimitRequest,
+      Temporal.Api.Cloud.Cloudservice.V1.DeleteCallerRateLimitResponse
+
   rpc :UpdateNamespaceTags,
       Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsRequest,
       Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsResponse
