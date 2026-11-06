@@ -1496,6 +1496,161 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.ValidateNamespaceExportSinkResponse
     syntax: :proto3
 end
 
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateCallerRateLimitRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.CreateCallerRateLimitRequest",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :spec, 2, type: Temporal.Api.Cloud.Namespace.V1.CallerRateLimitSpec
+  field :async_operation_id, 3, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.CreateCallerRateLimitResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.CreateCallerRateLimitResponse",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :caller_rate_limit_id, 2, type: :string, json_name: "callerRateLimitId"
+
+  field :async_operation, 3,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCallerRateLimitRequest",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :caller_rate_limit_id, 2, type: :string, json_name: "callerRateLimitId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCallerRateLimitResponse",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :caller_rate_limit, 1,
+    type: Temporal.Api.Cloud.Namespace.V1.CallerRateLimit,
+    json_name: "callerRateLimit"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitsRequest.CallerFilter do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCallerRateLimitsRequest.CallerFilter",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :caller_type, 1, type: :string, json_name: "callerType"
+  field :default, 2, type: :bool
+  field :caller, 3, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCallerRateLimitsRequest",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :caller_filter, 4,
+    type: Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitsRequest.CallerFilter,
+    json_name: "callerFilter"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCallerRateLimitsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.GetCallerRateLimitsResponse",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :caller_rate_limits, 1,
+    repeated: true,
+    type: Temporal.Api.Cloud.Namespace.V1.CallerRateLimit,
+    json_name: "callerRateLimits"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateCallerRateLimitRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.UpdateCallerRateLimitRequest",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :caller_rate_limit_id, 2, type: :string, json_name: "callerRateLimitId"
+  field :spec, 3, type: Temporal.Api.Cloud.Namespace.V1.CallerRateLimitSpec
+  field :resource_version, 4, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateCallerRateLimitResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.UpdateCallerRateLimitResponse",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteCallerRateLimitRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.DeleteCallerRateLimitRequest",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :namespace, 1, type: :string
+  field :caller_rate_limit_id, 2, type: :string, json_name: "callerRateLimitId"
+  field :resource_version, 3, type: :string, json_name: "resourceVersion"
+  field :async_operation_id, 4, type: :string, json_name: "asyncOperationId"
+end
+
+defmodule Temporal.Api.Cloud.Cloudservice.V1.DeleteCallerRateLimitResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.cloudservice.v1.DeleteCallerRateLimitResponse",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :async_operation, 1,
+    type: Temporal.Api.Cloud.Operation.V1.AsyncOperation,
+    json_name: "asyncOperation"
+end
+
 defmodule Temporal.Api.Cloud.Cloudservice.V1.UpdateNamespaceTagsRequest.TagsToUpsertEntry do
   @moduledoc false
 

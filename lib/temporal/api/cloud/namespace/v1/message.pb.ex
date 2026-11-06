@@ -583,6 +583,68 @@ defmodule Temporal.Api.Cloud.Namespace.V1.Namespace do
   field :project_id, 17, type: :string, json_name: "projectId"
 end
 
+defmodule Temporal.Api.Cloud.Namespace.V1.CallerRateLimit do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.CallerRateLimit",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :id, 1, type: :string
+  field :resource_version, 2, type: :string, json_name: "resourceVersion"
+  field :spec, 3, type: Temporal.Api.Cloud.Namespace.V1.CallerRateLimitSpec
+  field :state, 4, type: Temporal.Api.Cloud.Resource.V1.ResourceState, enum: true
+  field :async_operation_id, 5, type: :string, json_name: "asyncOperationId"
+  field :created_time, 6, type: Google.Protobuf.Timestamp, json_name: "createdTime"
+  field :last_modified_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+  field :namespace, 8, type: :string
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.CallerRateLimitSpec do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.CallerRateLimitSpec",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  oneof :rule, 0
+
+  field :namespace_default, 1,
+    type: Temporal.Api.Cloud.Namespace.V1.NamespaceDefaultCallerRateLimit,
+    json_name: "namespaceDefault",
+    oneof: 0
+
+  field :namespace_limit, 2,
+    type: Temporal.Api.Cloud.Namespace.V1.NamespaceCallerRateLimit,
+    json_name: "namespaceLimit",
+    oneof: 0
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceCallerRateLimit do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.NamespaceCallerRateLimit",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :namespace_id, 1, type: :string, json_name: "namespaceId"
+  field :rps, 2, type: :double
+end
+
+defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceDefaultCallerRateLimit do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.namespace.v1.NamespaceDefaultCallerRateLimit",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :rps, 1, type: :double
+end
+
 defmodule Temporal.Api.Cloud.Namespace.V1.NamespaceRegionStatus do
   @moduledoc false
 
