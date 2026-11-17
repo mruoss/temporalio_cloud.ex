@@ -104,6 +104,7 @@ defmodule Temporal.Api.Cloud.Identity.V1.ProjectAccess do
     syntax: :proto3
 
   field :role, 1, type: Temporal.Api.Cloud.Identity.V1.ProjectAccess.ProjectRole, enum: true
+  field :custom_roles, 2, repeated: true, type: :string, json_name: "customRoles"
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.Access.NamespaceAccessesEntry do
@@ -247,6 +248,23 @@ defmodule Temporal.Api.Cloud.Identity.V1.User do
   field :invitation, 6, type: Temporal.Api.Cloud.Identity.V1.Invitation
   field :created_time, 7, type: Google.Protobuf.Timestamp, json_name: "createdTime"
   field :last_modified_time, 8, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+
+  field :group_memberships, 10,
+    repeated: true,
+    type: Temporal.Api.Cloud.Identity.V1.UserGroupMembership,
+    json_name: "groupMemberships"
+end
+
+defmodule Temporal.Api.Cloud.Identity.V1.UserGroupMembership do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "temporal.api.cloud.identity.v1.UserGroupMembership",
+    protoc_gen_elixir_version: "0.17.1",
+    syntax: :proto3
+
+  field :group_id, 1, type: :string, json_name: "groupId"
+  field :display_name, 2, type: :string, json_name: "displayName"
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.GoogleGroupSpec do
@@ -478,6 +496,8 @@ defmodule Temporal.Api.Cloud.Identity.V1.CustomRoleSpec do
   field :permissions, 3,
     repeated: true,
     type: Temporal.Api.Cloud.Identity.V1.CustomRoleSpec.Permission
+
+  field :project_id, 4, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Identity.V1.CustomRole do

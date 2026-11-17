@@ -41,6 +41,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUsersRequest do
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :email, 3, type: :string
   field :namespace, 4, type: :string
+  field :include_group_memberships, 5, type: :bool, json_name: "includeGroupMemberships"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUsersResponse do
@@ -64,6 +65,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserRequest do
     syntax: :proto3
 
   field :user_id, 1, type: :string, json_name: "userId"
+  field :include_group_memberships, 2, type: :bool, json_name: "includeGroupMemberships"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetUserResponse do
@@ -2059,6 +2061,7 @@ defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCustomRolesRequest do
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
+  field :project_id, 3, type: :string, json_name: "projectId"
 end
 
 defmodule Temporal.Api.Cloud.Cloudservice.V1.GetCustomRolesResponse do
